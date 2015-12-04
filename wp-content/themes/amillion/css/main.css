@@ -449,6 +449,62 @@ h3 {
   margin: auto;
 }
 
+.rond1 {
+  background: url(../img/rond1.png) no-repeat center;
+  background-size: cover;
+  width: 350px;
+  height: 350px;
+}
+
+.petit-rond1 {
+  background: url(../img/petit-rond1.png) no-repeat center;
+  background-size: cover;
+  width: 70px;
+  height: 70px;
+}
+
+.barre-gauche1 {
+  background: url(../img/barre-gauche1.png) no-repeat center;
+  background-size: cover;
+  width: 250px;
+  height: 380px;
+}
+
+.barre-gauche2 {
+  background: url(../img/barre-gauche2.png) no-repeat center;
+  background-size: cover;
+  width: 350px;
+  height: 350px;
+}
+
+.rond2 {
+  background: url(../img/rond2.png) no-repeat center;
+  background-size: cover;
+  width: 250px;
+  height: 250px;
+}
+
+.petit-rond2 {
+  background: url(../img/petit-rond2.png) no-repeat center;
+  background-size: cover;
+  width: 70px;
+  height: 70px;
+}
+
+.rond3 {
+  background: url(../img/rond3.png) no-repeat center;
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+}
+
+.barre-droite1 {
+  background: url(../img/barre-droite1.png) no-repeat center;
+  background-size: cover;
+  width: 130px;
+  height: 230px;
+}
+
 /**** HEADER ****/
 header {
   padding-top: 15px;
