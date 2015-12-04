@@ -1,0 +1,45 @@
+@mixin full() {
+    position: absolute;
+    height : 100%;
+    width:100%;
+    left: 0;
+    top: 0;
+}
+
+//en vrais, on a plus besoin de prefix sur transition
+@mixin transition($transition...) {
+    transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+}
+
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -ms-transform: $transform;
+    transform: $transform;
+}
+
+@mixin transform-origin($transform-origin) {
+    -webkit-transform-origin: $transform-origin;
+    -moz-transform-origin: $transform-origin;
+    -ms-transform-origin: $transform-origin;
+    -o-transform-origin: $transform-origin;
+    transform-origin: $transform-origin;
+}
+
+@mixin opacity($value) {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value * 100})";
+    filter: alpha(opacity=#{$value * 100});
+    -moz-opacity: $value;
+    -khtml-opacity: $value;
+    opacity: $value;
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}
+}

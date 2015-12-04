@@ -1,0 +1,54 @@
+/* default classes */
+
+*{
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: auto;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+::selection {
+}
+
+html{
+	overflow-x: hidden;
+	font-family: $steelfish;
+}
+
+body{
+	background: $dark-white;
+}
+
+img{
+	max-width: 100%;
+}
+
+h1{
+	
+}
+
+h2{
+	font-family: $steelfish;
+}
+
+h3{
+	font-family: $steelfish;
+}
+
+.wrapper{
+	width: 1200px;
+	margin: auto;
+}
+
+
+/**** HEADER ****/
+
+header{
+	padding-top: 15px;
+}
+
+.logo{
+	display: inline-block;
+	width: 190px;
+}
+

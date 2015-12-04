@@ -1,0 +1,52 @@
+* {
+  -webkit-touch-callout: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+p {
+
+}
+
+a {
+  cursor: pointer;
+}
+
+blockquote {
+
+}
+/* ... */
+
+@font-face {
+	font-family:'steelfish';
+	src: url('../fonts/steelfish-webfont.eot');
+	src: url('../fonts/steelfish-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/steelfish-webfont.woff') format('woff'),
+		url('../fonts/steelfish-webfont.ttf') format('truetype'),
+		url('../fonts/steelfish-webfont.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
