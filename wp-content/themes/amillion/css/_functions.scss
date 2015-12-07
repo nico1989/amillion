@@ -6,6 +6,14 @@
     top: 0;
 }
 
+@mixin gradient($colorA, $colorB){
+    background: $colorA; /* Old browsers */
+    background: -moz-linear-gradient(left, $colorA, 25%, $colorA 25%, $colorB 78%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $colorA 25%,$colorA 25%,$colorB 78%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, $colorA 25%,$colorA 25%,$colorB 78%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 ); /* IE6 */  
+}
+
 //en vrais, on a plus besoin de prefix sur transition
 @mixin transition($transition...) {
     transition: $transition;

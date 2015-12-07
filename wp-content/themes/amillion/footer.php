@@ -13,6 +13,8 @@
 
 </div>
 
+<div class='bottom-bar'></div>
+
 <?php wp_footer(); ?>
 
 </body>

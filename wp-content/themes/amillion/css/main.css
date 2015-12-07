@@ -415,10 +415,30 @@ a {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'gotham-book';
+  src: url("../fonts/gotham-book.eot");
+  src: url("../fonts/gotham-book.eot?#iefix") format("embedded-opentype"), url("../fonts/gotham-book.woff") format("woff"), url("../fonts/gotham-book.ttf") format("truetype"), url("../fonts/gotham-book.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'gotham-book-italic';
+  src: url("../fonts/gotham-book-italic.eot");
+  src: url("../fonts/gotham-book-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/gotham-book-italic.woff") format("woff"), url("../fonts/gotham-book-italic.ttf") format("truetype"), url("../fonts/gotham-book-italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'gotham-bold';
+  src: url("../fonts/gotham-bold.eot");
+  src: url("../fonts/gotham-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/gotham-bold.woff") format("woff"), url("../fonts/gotham-bold.ttf") format("truetype"), url("../fonts/gotham-bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 /* default classes */
 * {
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -436,8 +456,42 @@ img {
   max-width: 100%;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+p {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
 h2 {
-  font-family: "steelfish";
+  font-family: "gotham-bold";
+  font-size: 18px;
+  color: #333333;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.title-nav:after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 30px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 50%;
+  background-position: 0 0;
+  margin: auto;
+  margin-top: 10px;
 }
 
 h3 {
@@ -445,8 +499,235 @@ h3 {
 }
 
 .wrapper {
-  width: 1200px;
+  width: 1000px;
   margin: auto;
+  padding-top: 25px;
+  background: #f9f9f9;
+}
+
+.top-bar, .bottom-bar {
+  width: 100%;
+  height: 10px;
+  z-index: 999;
+  left: 0;
+  background: #324c98;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #324c98, 25%, #324c98 25%, #2ce3be 78%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 );
+  /* IE6 */
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+}
+
+.btn-menu {
+  text-transform: uppercase;
+  font-size: 18px;
+  float: right;
+  font-family: "gotham-bold";
+  color: #333333;
+}
+.btn-menu .bar {
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 38px;
+  width: 1px;
+  height: 13px;
+  background: #333333;
+}
+.btn-menu .burger {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: relative;
+  margin-left: 12px;
+}
+.btn-menu .burger span {
+  width: 100%;
+  height: 3px;
+  background: #333;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #333, 25%, #333 25%, #333 78%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #333 25%, #333 25%, #333 78%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #333 25%, #333 25%, #333 78%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 );
+  /* IE6 */
+  display: block;
+  margin-top: 3px;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+}
+.btn-menu:hover .burger span {
+  background: #324c98;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #324c98, 25%, #324c98 25%, #2ce3be 78%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 );
+  /* IE6 */
+}
+.btn-menu:hover .burger span:nth-child(1),
+.btn-menu:hover .burger span:nth-child(3) {
+  -webkit-transform: translateX(-3px);
+  -ms-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.bg .form {
+  position: absolute;
+}
+
+.bx-wrapper .bx-viewport {
+  border: 0;
+  box-shadow: none;
+}
+
+.slideshow {
+  margin-top: 60px;
+  position: relative;
+}
+.slideshow a, .slideshow p, .slideshow h3 {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.slideshow .content {
+  position: absolute;
+  bottom: 40px;
+  left: 150px;
+}
+.slideshow .trame {
+  background: url();
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.slideshow li {
+  width: 1200px;
+  height: 525px;
+}
+.slideshow h3 {
+  font-size: 50px;
+}
+.slideshow h3:after {
+  content: "";
+  height: 1px;
+  width: 30px;
+  display: block;
+  margin-top: 15px;
+  background: #ffffff;
+  background: rgba(255, 255, 255, 0.63);
+}
+.slideshow p {
+  font-size: 23px;
+  margin: 0;
+}
+.slideshow .brand {
+  font-family: "gotham-bold";
+}
+.slideshow .type {
+  font-family: "gotham-book-italic";
+}
+
+.pushs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.push {
+  width: 100%;
+  padding: 40px 50px;
+  width: 300px;
+  text-align: center;
+}
+.push span {
+  font-family: "gotham-bold";
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+}
+.push p {
+  font-family: "gotham-book";
+  font-size: 18px;
+  text-transform: none;
+}
+.push .push-title {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: "steelfish";
+  margin: 15px 0;
+}
+.push .btn-push {
+  background: #fff;
+  padding: 8px 15px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.push-library {
+  background: #324c98;
+}
+.push-library .btn-push {
+  color: #324c98;
+}
+.push-library .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px 0;
+}
+
+.push-production {
+  background: #2ce3be;
+}
+.push-production .btn-push {
+  color: #2ce3be;
+}
+.push-production .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px -10px;
 }
 
 .rond1 {
@@ -454,6 +735,7 @@ h3 {
   background-size: cover;
   width: 350px;
   height: 350px;
+  top: 270px;
 }
 
 .petit-rond1 {
@@ -461,20 +743,25 @@ h3 {
   background-size: cover;
   width: 70px;
   height: 70px;
+  top: 600px;
 }
 
 .barre-gauche1 {
   background: url(../img/barre-gauche1.png) no-repeat center;
   background-size: cover;
   width: 250px;
-  height: 380px;
+  height: 470px;
+  top: 1045px;
+  left: 0;
 }
 
 .barre-gauche2 {
   background: url(../img/barre-gauche2.png) no-repeat center;
   background-size: cover;
-  width: 350px;
+  width: 325px;
   height: 350px;
+  top: 2370px;
+  left: 0;
 }
 
 .rond2 {
@@ -482,6 +769,8 @@ h3 {
   background-size: cover;
   width: 250px;
   height: 250px;
+  right: 0;
+  top: 990px;
 }
 
 .petit-rond2 {
@@ -489,6 +778,8 @@ h3 {
   background-size: cover;
   width: 70px;
   height: 70px;
+  top: 1280px;
+  right: 0;
 }
 
 .rond3 {
@@ -496,6 +787,8 @@ h3 {
   background-size: cover;
   width: 450px;
   height: 450px;
+  right: 0;
+  top: 2940px;
 }
 
 .barre-droite1 {
@@ -503,6 +796,8 @@ h3 {
   background-size: cover;
   width: 130px;
   height: 230px;
+  top: 1740px;
+  right: 0;
 }
 
 /**** HEADER ****/
@@ -513,6 +808,18 @@ header {
 .logo {
   display: inline-block;
   width: 190px;
+  position: relative;
+}
+.logo:after {
+  content: "Music library \A On-demand production ";
+  white-space: pre;
+  display: inline-block;
+  font-family: "gotham-bold";
+  position: absolute;
+  bottom: 0;
+  right: -108%;
+  font-size: 14px;
+  line-height: 1.15em;
 }
 
 /*# sourceMappingURL=main.css.map */

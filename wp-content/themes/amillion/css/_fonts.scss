@@ -50,3 +50,36 @@ blockquote {
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+	font-family:'gotham-book';
+	src: url('../fonts/gotham-book.eot');
+	src: url('../fonts/gotham-book.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/gotham-book.woff') format('woff'),
+		url('../fonts/gotham-book.ttf') format('truetype'),
+		url('../fonts/gotham-book.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'gotham-book-italic';
+	src: url('../fonts/gotham-book-italic.eot');
+	src: url('../fonts/gotham-book-italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/gotham-book-italic.woff') format('woff'),
+		url('../fonts/gotham-book-italic.ttf') format('truetype'),
+		url('../fonts/gotham-book-italic.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'gotham-bold';
+	src: url('../fonts/gotham-bold.eot');
+	src: url('../fonts/gotham-bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/gotham-bold.woff') format('woff'),
+		url('../fonts/gotham-bold.ttf') format('truetype'),
+		url('../fonts/gotham-bold.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
