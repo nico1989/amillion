@@ -499,8 +499,16 @@ h3 {
   font-family: "steelfish";
 }
 
+.bloc {
+  position: relative;
+}
+
 .bx-controls {
   display: none;
+}
+
+.bx-wrapper {
+  margin-bottom: 30px;
 }
 
 .wrapper {
@@ -614,128 +622,6 @@ h3 {
   box-shadow: none;
 }
 
-.slideshow {
-  margin-top: 60px;
-  position: relative;
-}
-.slideshow a, .slideshow p, .slideshow h3 {
-  color: #ffffff;
-  text-transform: uppercase;
-}
-.slideshow .content {
-  position: absolute;
-  bottom: 40px;
-  left: 150px;
-}
-.slideshow .trame {
-  background: url();
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-.slideshow li {
-  width: 1200px;
-  height: 525px;
-}
-.slideshow h3 {
-  font-size: 50px;
-}
-.slideshow h3:after {
-  content: "";
-  height: 1px;
-  width: 30px;
-  display: block;
-  margin-top: 15px;
-  background: #ffffff;
-  background: rgba(255, 255, 255, 0.63);
-}
-.slideshow p {
-  font-size: 23px;
-  margin: 0;
-}
-.slideshow .brand {
-  font-family: "gotham-bold";
-}
-.slideshow .type {
-  font-family: "gotham-book-italic";
-}
-
-.pushs {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-}
-
-.push {
-  width: 100%;
-  padding: 40px 50px;
-  width: 300px;
-  text-align: center;
-}
-.push span {
-  font-family: "gotham-bold";
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #ffffff;
-  color: rgba(255, 255, 255, 0.7);
-  display: inline-block;
-}
-.push p {
-  font-family: "gotham-book";
-  font-size: 18px;
-  text-transform: none;
-}
-.push .push-title {
-  font-size: 40px;
-  text-transform: uppercase;
-  font-family: "steelfish";
-  margin: 15px 0;
-}
-.push .btn-push {
-  background: #fff;
-  padding: 8px 15px;
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.push-library {
-  background: #324c98;
-}
-.push-library .btn-push {
-  color: #324c98;
-}
-.push-library .btn-push:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  width: 15px;
-  height: 8px;
-  margin-right: 10px;
-  background: url(../img/pictos.png) no-repeat;
-  background-size: 175%;
-  background-position: -12px 0;
-}
-
-.push-production {
-  background: #2ce3be;
-}
-.push-production .btn-push {
-  color: #2ce3be;
-}
-.push-production .btn-push:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  width: 15px;
-  height: 8px;
-  margin-right: 10px;
-  background: url(../img/pictos.png) no-repeat;
-  background-size: 175%;
-  background-position: -12px -10px;
-}
-
 .rond1 {
   background: url(../img/rond1.png) no-repeat center;
   background-size: cover;
@@ -828,21 +714,62 @@ header {
   line-height: 1.15em;
 }
 
-.slideshow-frame {
-  width: 100%;
-  height: 110%;
+.slideshow-frame, .services-frame {
+  width: 1000px;
+  height: 560px;
   position: absolute;
   left: 60px;
   top: 60px;
-  border: 3px solid #2ce3be;
+  border-left: 3px solid #324c98;
+  border-right: 3px solid #2ce3be;
   z-index: 1;
 }
-.slideshow-frame nav {
+.slideshow-frame:before, .services-frame:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #2ce3be;
+  background: #324c98;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #324c98, 25%, #324c98 25%, #2ce3be 78%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 );
+  /* IE6 */
+}
+.slideshow-frame:after, .services-frame:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #2ce3be;
+  background: #324c98;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #324c98, 25%, #324c98 25%, #2ce3be 78%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #324c98 25%, #324c98 25%, #2ce3be 78%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 );
+  /* IE6 */
+}
+.slideshow-frame nav, .services-frame nav {
   position: absolute;
   bottom: 100px;
   left: -27px;
 }
-.slideshow-frame nav a {
+.slideshow-frame nav a, .services-frame nav a {
   display: block;
   height: 50px;
   width: 50px;
@@ -854,27 +781,342 @@ header {
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
 }
-.slideshow-frame nav a.prev {
+.slideshow-frame nav a.prev, .services-frame nav a.prev {
   background: url(../img/nav-arrow-prev.png) no-repeat center #27272f;
   background-size: 25px;
 }
-.slideshow-frame nav a.prev:hover {
+.slideshow-frame nav a.prev:hover, .services-frame nav a.prev:hover {
   background: url(../img/nav-arrow-prev.png) no-repeat center #2c2c35;
   background-size: 25px;
   background-position: center 15px;
 }
-.slideshow-frame nav a.next {
+.slideshow-frame nav a.next, .services-frame nav a.next {
   background: url(../img/nav-arrow-next.png) no-repeat center #27272f;
   background-size: 25px;
 }
-.slideshow-frame nav a.next:hover {
+.slideshow-frame nav a.next:hover, .services-frame nav a.next:hover {
   background: url(../img/nav-arrow-next.png) no-repeat center #2c2c35;
   background-size: 25px;
   background-position: center 25px;
 }
 
+.slideshow {
+  margin-top: 60px;
+  position: relative;
+  width: 1200px;
+}
+.slideshow a, .slideshow p, .slideshow h3 {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.slideshow .content {
+  position: absolute;
+  bottom: 40px;
+  left: 150px;
+}
+.slideshow .trame {
+  background: url();
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.slideshow li {
+  width: 1200px;
+  height: 525px;
+}
+.slideshow h3 {
+  font-size: 50px;
+}
+.slideshow h3:after {
+  content: "";
+  height: 1px;
+  width: 30px;
+  display: block;
+  margin-top: 15px;
+  background: #ffffff;
+  background: rgba(255, 255, 255, 0.63);
+}
+.slideshow p {
+  font-size: 23px;
+  margin: 0;
+}
+.slideshow .brand {
+  font-family: "gotham-bold";
+}
+.slideshow .type {
+  font-family: "gotham-book-italic";
+}
+
+.pushs {
+  position: absolute;
+  top: 0;
+  right: 200px;
+  z-index: 2;
+}
+
+.push {
+  width: 100%;
+  padding: 30px 40px;
+  width: 250px;
+  text-align: center;
+}
+.push span {
+  font-family: "gotham-bold";
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+}
+.push p {
+  font-family: "gotham-book";
+  font-size: 16px;
+  text-transform: none;
+}
+.push .push-title {
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: "steelfish";
+  margin: 15px 0;
+  line-height: 1em;
+}
+.push .btn-push {
+  background: #fff;
+  padding: 8px 15px;
+  display: inline-block;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.push-library {
+  background: #324c98;
+}
+.push-library .btn-push {
+  color: #324c98;
+}
+.push-library .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px 0;
+}
+
+.push-production {
+  background: #2ce3be;
+}
+.push-production .btn-push {
+  color: #2ce3be;
+}
+.push-production .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px -10px;
+}
+
 .bloc-projets {
   margin-top: 50px;
+}
+
+.bloc-services {
+  padding: 30px 0 0 0;
+}
+.bloc-services .services-frame {
+  top: 0;
+}
+.bloc-services h4 {
+  font-family: "gotham-bold";
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-left: 130px;
+}
+.bloc-services h4:after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 30px;
+  margin-top: 15px;
+  background: #ffffff;
+  background: #333333;
+}
+.bloc-services > p {
+  font-family: "gotham-book-italic";
+  font-size: 18px;
+  text-transform: uppercase;
+  padding-left: 130px;
+}
+.bloc-services .pushs {
+  width: 100%;
+  position: relative;
+  right: auto;
+  margin-top: 50px;
+}
+.bloc-services .push {
+  display: inline-block;
+  vertical-align: top;
+  height: 380px;
+  width: 250px;
+  position: relative;
+}
+.bloc-services .push span {
+  background: url(../img/pictos-services.png) no-repeat;
+  background-size: 84px;
+  width: 40px;
+  height: 40px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=45)";
+  filter: alpha(opacity=45);
+  -moz-opacity: 0.45;
+  -khtml-opacity: 0.45;
+  opacity: 0.45;
+}
+.bloc-services .push .push-title {
+  color: #fff;
+}
+.bloc-services .push p {
+  color: #fff;
+}
+.bloc-services .push .btn-push {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.bloc-services .push-library {
+  background: #324c98;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
+  background: #2475a1;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #2475a1 0%, #214695 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #2475a1 0%, #214695 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #2475a1 0%, #214695 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=0 );
+  /* IE6-9 */
+}
+.bloc-services .push-library span {
+  background-position: 0 -45px;
+}
+.bloc-services .push-library .btn-push {
+  color: #324c98;
+}
+.bloc-services .push-library .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px 0;
+}
+.bloc-services .push-production {
+  background: #2ce3be;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
+  background: #2ce1be;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #2ce1be 0%, #29b2b2 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #2ce1be 0%, #29b2b2 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #2ce1be 0%, #29b2b2 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=0 );
+  /* IE6-9 */
+}
+.bloc-services .push-production span {
+  background-position: -45px -45px;
+}
+.bloc-services .push-production .btn-push {
+  color: #2ce3be;
+}
+.bloc-services .push-production .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px 0;
+}
+.bloc-services .push-sound-design {
+  background: #e75c5b;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
+  background: #ee735e;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ee735e 0%, #e75b5b 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ee735e 0%, #e75b5b 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ee735e 0%, #e75b5b 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=0 );
+  /* IE6-9 */
+}
+.bloc-services .push-sound-design span {
+  background-position: 0 -3px;
+}
+.bloc-services .push-sound-design .btn-push {
+  color: #e75c5b;
+}
+.bloc-services .push-sound-design .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px 0;
+}
+.bloc-services .push-identity {
+  background: #f89362;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
+  background: #ffaa65;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffaa65 0%, #f89262 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffaa65 0%, #f89262 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffaa65 0%, #f89262 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=0 );
+  /* IE6-9 */
+}
+.bloc-services .push-identity span {
+  background-position: -40px 0;
+}
+.bloc-services .push-identity .btn-push {
+  color: #f89362;
+}
+.bloc-services .push-identity .btn-push:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 8px;
+  margin-right: 10px;
+  background: url(../img/pictos.png) no-repeat;
+  background-size: 175%;
+  background-position: -12px 0;
 }
 
 /*# sourceMappingURL=main.css.map */

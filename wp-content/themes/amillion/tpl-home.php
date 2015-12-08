@@ -78,7 +78,46 @@ get_header(); ?>
 
 </div>
 
+<h2 class='title-nav'>Services</h2>
+
+
 <div class="bloc bloc-services">
+
+	<div class="services-frame"></div>
+
+	<h4>Amillion is a company specialized in music design since 2010 and worked with international renowned brands.</h4>
+
+	<p>We are able to create adapted soundtracks, synchronized to visual such as advertising movies, documentaries or digital content. <br>Our services offer is presented below: </p>
+	
+	<div class="pushs">
+		<div class='push push-library'>
+			<span></span>
+			<p class="push-title">Music library</p>
+			<p>Find the perfect production music for your project from our library including a large sound variety, organized through different playlists</p>
+			<a href="#" class="btn btn-push">Access</a>
+		</div><!--
+
+		--><div class='push push-production'>
+			<span></span>
+			<p class="push-title">On demand production</p>
+			<p>Give us a complete description for your project and receive a track fully meeting your needs</p>
+			<a href="#" class="btn btn-push">Fill a brief</a>
+		</div><!--
+
+		--><div class='push push-sound-design'>
+			<span></span>
+			<p class="push-title">Sound design</p>
+			<p>We own a large sound bankable to give life to your project by adding sound environment, sound effects or FX</p>
+			<a href="#" class="btn btn-push">Get in touch</a>
+		</div><!--
+
+		--><div class='push push-identity'>
+			<span></span>
+			<p class="push-title">Sound identity</p>
+			<p>Sound identity is the brand’s sound DNA. <br>We create your jingles, radio spots and compositions to accompany your image</p>
+			<a href="#" class="btn btn-push">Get in touch</a>
+		</div>
+	</div>
 
 </div>
 
@@ -86,7 +125,6 @@ get_header(); ?>
 
 </div>
 
-<h2 class='title-nav'>Services</h2>
 
 <script>
 		
