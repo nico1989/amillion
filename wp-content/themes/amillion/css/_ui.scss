@@ -16,6 +16,7 @@ html{
 
 body{
 	background: $dark-white;
+	background: url(../img/bg-bruit.jpg) repeat;
 }
 
 img{
@@ -56,10 +57,10 @@ h2{
 	&:after{
 		content: '';
 		display: block;
-		width: 18px;
-		height: 30px;
+		width: 9px;
+		height: 15px;
 		background: url(../img/pictos.png) no-repeat;
-		background-size: 50%;
+		background-size: 275%;
 		background-position: 0 0;
 		margin: auto;
 		margin-top: 10px;
@@ -70,11 +71,16 @@ h3{
 	font-family: $steelfish;
 }
 
+.bx-controls{
+	display: none;
+}
+
 .wrapper{
 	width: 1000px;
 	margin: auto;
 	padding-top: 25px;
 	background: $dark-white;
+	background: url(../img/bg-bruit.jpg) repeat;
 }
 
 .top-bar, .bottom-bar{

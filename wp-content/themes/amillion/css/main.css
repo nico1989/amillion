@@ -450,6 +450,7 @@ html {
 
 body {
   background: #f9f9f9;
+  background: url(../img/bg-bruit.jpg) repeat;
 }
 
 img {
@@ -485,10 +486,10 @@ h2 {
 .title-nav:after {
   content: '';
   display: block;
-  width: 18px;
-  height: 30px;
+  width: 9px;
+  height: 15px;
   background: url(../img/pictos.png) no-repeat;
-  background-size: 50%;
+  background-size: 275%;
   background-position: 0 0;
   margin: auto;
   margin-top: 10px;
@@ -498,11 +499,16 @@ h3 {
   font-family: "steelfish";
 }
 
+.bx-controls {
+  display: none;
+}
+
 .wrapper {
   width: 1000px;
   margin: auto;
   padding-top: 25px;
   background: #f9f9f9;
+  background: url(../img/bg-bruit.jpg) repeat;
 }
 
 .top-bar, .bottom-bar {
@@ -820,6 +826,55 @@ header {
   right: -108%;
   font-size: 14px;
   line-height: 1.15em;
+}
+
+.slideshow-frame {
+  width: 100%;
+  height: 110%;
+  position: absolute;
+  left: 60px;
+  top: 60px;
+  border: 3px solid #2ce3be;
+  z-index: 1;
+}
+.slideshow-frame nav {
+  position: absolute;
+  bottom: 100px;
+  left: -27px;
+}
+.slideshow-frame nav a {
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: #27272f;
+  color: #fff;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+.slideshow-frame nav a.prev {
+  background: url(../img/nav-arrow-prev.png) no-repeat center #27272f;
+  background-size: 25px;
+}
+.slideshow-frame nav a.prev:hover {
+  background: url(../img/nav-arrow-prev.png) no-repeat center #2c2c35;
+  background-size: 25px;
+  background-position: center 15px;
+}
+.slideshow-frame nav a.next {
+  background: url(../img/nav-arrow-next.png) no-repeat center #27272f;
+  background-size: 25px;
+}
+.slideshow-frame nav a.next:hover {
+  background: url(../img/nav-arrow-next.png) no-repeat center #2c2c35;
+  background-size: 25px;
+  background-position: center 25px;
+}
+
+.bloc-projets {
+  margin-top: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */
