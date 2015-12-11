@@ -56,17 +56,24 @@ add_action('wp_enqueue_scripts', 'ajax_filter_posts_scripts', 100);
 
 
 // Script for getting posts
-function ajax_filter_get_posts( $taxonomy ) {
+function ajax_filter_get_posts( $taxonomy, $term ) {
  
   // Verify nonce
   if( !isset( $_POST['afp_nonce'] ) || !wp_verify_nonce( $_POST['afp_nonce'], 'afp_nonce' ) )
     die('Permission denied');
  
   $taxonomy = $_POST['taxonomy'];
- 
+  $term = $_POST['term'];
+  
   // WP Query
   $args = array(
-    'category_name' => $taxonomy,
+    'tax_query' => array(
+		array(
+			'taxonomy' => $taxonomy,
+			'field'    => 'slug',
+			'terms'    => $term,
+		),
+	),
     'post_type' => 'projets',
     'posts_per_page' => 10,
   );
