@@ -74,7 +74,59 @@ get_header(); ?>
 
 <h2 class='title-nav'>Projets</h2>
 
+<select class="filter filter-type">
+	<option value="">Type</option>
+	<?php $list_cat = get_categories(); 
+	foreach ($list_cat as $cat) :
+	?>
+	<option value="<?php echo $cat->slug; ?>"><?php echo $cat->cat_name; ?></option>
+	<?php endforeach; ?>
+</select>
+
+<select class="filter filter-brand">
+	<option value="">Brand</option>
+	<?php $list_tags = get_tags();
+
+	foreach ($list_tags as $tag) :
+	?>
+	<option value="<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></option>
+	<?php endforeach; ?>
+</select>
+
+
+
 <div class="bloc bloc-projets">
+
+	<?php
+		$type = 'projets';
+		$args=array(
+		  'post_type' => $type,
+		  'post_status' => 'publish',
+		  'posts_per_page' => -1,
+		  'caller_get_posts'=> 1);
+
+		$my_query = null;
+		$my_query = new WP_Query($args);
+		if( $my_query->have_posts() ) {
+		  while ($my_query->have_posts()) : $my_query->the_post(); 
+
+		  ?>
+
+			<li style="background: url(<?php echo get_field('image_slideshow')['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+		  		<div class="content">
+		  			<h3><?php the_title(); ?></h3>
+			  		<p class="brand"><?php the_tags('', ', ', ''); ?></p>
+			  		<p class="type"><?php the_category( ', ' ); ?></p>
+			  	</div>
+		  	</li>
+		    
+		    <?php
+		  endwhile;
+		}
+		wp_reset_query();
+		?>
+
+		
 
 </div>
 
@@ -134,6 +186,12 @@ get_header(); ?>
 		  mode: 'vertical',
 		  captions: true,
 		  pause: 6000
+
+		});
+
+		$('filter-type').on('change', function(){
+
+
 
 		});
 
