@@ -40,7 +40,7 @@ get_header(); ?>
 	<ul class="bxslider">
 
 		<?php
-			$type = 'projets';
+			$type = 'projet';
 			$args=array(
 			  'post_type' => $type,
 			  'post_status' => 'publish',
