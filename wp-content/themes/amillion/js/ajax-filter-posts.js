@@ -20,9 +20,10 @@ $(document).ready(function(){
 	    $.post( afp_vars.afp_ajax_url, data, function(response) {
 
 	        if( response ) {
-	            
-	            console.log(response);
-
+	        	console.log(response);
+	        	
+	        	$('.projets-liste ul').empty();
+	        	$('.projets-liste ul').append(response);
 	        };
 	    });
 

@@ -86,13 +86,22 @@ function ajax_filter_get_posts( $taxonomy, $term ) {
   $query = new WP_Query( $args );
  
   if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+
+    <li style="background: url(<?php echo get_field('image_slideshow')['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+      <div class="content">
+        <div class="overlay">
+          <h3><?php the_title(); ?></h3>
+          <p class="brand"><?php the_tags('', ', ', ''); ?></p>
+          <p class="type"><?php the_category( ', ' ); ?></p>
+        </div>
+      </div>
+    </li>
  
-    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     <?php the_excerpt(); ?>
  
   <?php endwhile; ?>
   <?php else: ?>
-    <h2>No posts found</h2>
+    <h2>No projects found</h2>
   <?php endif;
  
   die();
