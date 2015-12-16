@@ -44,6 +44,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="wp-content/themes/amillion/js/jquery.bxslider.min.js" /></script>
 	<script src="wp-content/themes/amillion/js/main.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
@@ -58,15 +59,15 @@
 	<div class='wrapper'>
 
 		<div class="bg">
-			<div class="form rond1"></div>
-			<div class="form petit-rond1"></div>
-			<div class="form barre-gauche1"></div>
-			<div class="form barre-gauche2"></div>
-			<div class="form rond2"></div>
-			<div class="form petit-rond2"></div>
-			<div class="form rond3"></div>
-			<div class="form petit-rond3"></div>
-			<div class="form barre-droite1"></div>
+			<div class="scroll-a form rond1"></div>
+			<div class="scroll-b form petit-rond1"></div>
+			<div class="scroll-a form barre-gauche1"></div>
+			<div class="scroll-b form barre-gauche2"></div>
+			<div class="scroll-a form rond2"></div>
+			<div class="scroll-b form petit-rond2"></div>
+			<div class="scroll-a form rond3"></div>
+			<div class="scroll-b form petit-rond3"></div>
+			<div class="scroll-aform barre-droite1"></div>
 		</div>
 
 		<a class="logo" href="/">
