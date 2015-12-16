@@ -55,18 +55,19 @@
 
 	<div class='top-bar'></div>
 
-	<div class="bg">
-		<div class="form rond1"></div>
-		<div class="form petit-rond1"></div>
-		<div class="form barre-gauche1"></div>
-		<div class="form barre-gauche2"></div>
-		<div class="form rond2"></div>
-		<div class="form petit-rond2"></div>
-		<div class="form rond3"></div>
-		<div class="form barre-droite3"></div>
-	</div>
-
 	<div class='wrapper'>
+
+		<div class="bg">
+			<div class="form rond1"></div>
+			<div class="form petit-rond1"></div>
+			<div class="form barre-gauche1"></div>
+			<div class="form barre-gauche2"></div>
+			<div class="form rond2"></div>
+			<div class="form petit-rond2"></div>
+			<div class="form rond3"></div>
+			<div class="form petit-rond3"></div>
+			<div class="form barre-droite1"></div>
+		</div>
 
 		<a class="logo" href="/">
 			<img alt="" src="wp-content/themes/amillion/img/logo-amillion.png" />

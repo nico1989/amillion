@@ -212,6 +212,7 @@ h3{
 	width: 350px;
 	height: 350px;
 	top: 270px;
+	left: -210px;
 }
 .petit-rond1{
 	background: url(../img/petit-rond1.png) no-repeat center;
@@ -219,6 +220,7 @@ h3{
 	width: 70px;
 	height: 70px;
 	top: 600px;
+	left: -250px;
 }
 .barre-gauche1{
 	background: url(../img/barre-gauche1.png) no-repeat center;
@@ -226,31 +228,31 @@ h3{
 	width: 250px;
 	height: 470px;
 	top: 1045px;
-	left: 0;
+	left: -250px;
 }
 .barre-gauche2{
 	background: url(../img/barre-gauche2.png) no-repeat center;
 	background-size: cover;
 	width: 325px;
 	height: 350px;
-	top: 2370px;
-	left: 0;
+	top: 2300px;
+	left: -320px;
 }
 .rond2{
 	background: url(../img/rond2.png) no-repeat center;
 	background-size: cover;
 	width: 250px;
 	height: 250px;
-	right: 0;
-	top: 990px;
+	left: 850px;
+	top: 850px;
 }
 .petit-rond2{
 	background: url(../img/petit-rond2.png) no-repeat center;
 	background-size: cover;
 	width: 70px;
 	height: 70px;
-	top: 1280px;
-	right: 0;
+	top: 1145px;
+	left: 1050px;
 }
 .rond3{
 	background: url(../img/rond3.png) no-repeat center;
@@ -260,13 +262,21 @@ h3{
 	right: 0;
 	top: 2940px;
 }
+.petit-rond3{
+	background: url(../img/petit-rond3.png) no-repeat center;
+	background-size: cover;
+	width: 70px;
+	height: 70px;
+	top: 2050px;
+	left: -150px;
+}
 .barre-droite1{
 	background: url(../img/barre-droite1.png) no-repeat center;
 	background-size: cover;
 	width: 130px;
 	height: 230px;
 	top: 1740px;
-	right: 0;
+	left: 975px;
 }
 
 /**** HEADER ****/

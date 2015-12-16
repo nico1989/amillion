@@ -660,6 +660,7 @@ h3 {
   width: 350px;
   height: 350px;
   top: 270px;
+  left: -210px;
 }
 
 .petit-rond1 {
@@ -668,6 +669,7 @@ h3 {
   width: 70px;
   height: 70px;
   top: 600px;
+  left: -250px;
 }
 
 .barre-gauche1 {
@@ -676,7 +678,7 @@ h3 {
   width: 250px;
   height: 470px;
   top: 1045px;
-  left: 0;
+  left: -250px;
 }
 
 .barre-gauche2 {
@@ -684,8 +686,8 @@ h3 {
   background-size: cover;
   width: 325px;
   height: 350px;
-  top: 2370px;
-  left: 0;
+  top: 2300px;
+  left: -320px;
 }
 
 .rond2 {
@@ -693,8 +695,8 @@ h3 {
   background-size: cover;
   width: 250px;
   height: 250px;
-  right: 0;
-  top: 990px;
+  left: 850px;
+  top: 850px;
 }
 
 .petit-rond2 {
@@ -702,8 +704,8 @@ h3 {
   background-size: cover;
   width: 70px;
   height: 70px;
-  top: 1280px;
-  right: 0;
+  top: 1145px;
+  left: 1050px;
 }
 
 .rond3 {
@@ -715,13 +717,22 @@ h3 {
   top: 2940px;
 }
 
+.petit-rond3 {
+  background: url(../img/petit-rond3.png) no-repeat center;
+  background-size: cover;
+  width: 70px;
+  height: 70px;
+  top: 2050px;
+  left: -150px;
+}
+
 .barre-droite1 {
   background: url(../img/barre-droite1.png) no-repeat center;
   background-size: cover;
   width: 130px;
   height: 230px;
   top: 1740px;
-  right: 0;
+  left: 975px;
 }
 
 /**** HEADER ****/
@@ -798,7 +809,7 @@ header {
 }
 .slideshow-frame nav, .services-frame nav {
   position: absolute;
-  bottom: 100px;
+  bottom: 140px;
   left: -27px;
 }
 .slideshow-frame nav a, .services-frame nav a {
@@ -920,6 +931,10 @@ header {
   margin-top: 20px;
   text-transform: uppercase;
 }
+.push .btn-push:before {
+  position: relative;
+  top: -1px;
+}
 
 .push-library {
   background: #324c98;
@@ -977,7 +992,7 @@ header {
 
 .filter {
   background: #27272f;
-  width: 33.333%;
+  width: 33.48%;
   display: inline-block;
   text-transform: uppercase;
   color: #fff;
@@ -986,6 +1001,7 @@ header {
   height: 54px;
   line-height: 1em;
   border: 0;
+  margin-right: -4px;
 }
 
 .filter-brand {
@@ -1001,11 +1017,12 @@ header {
   margin-bottom: 30px;
 }
 .bloc-projets li {
-  width: 33.333%;
+  width: 33.48%;
   display: inline-block;
-  margin-left: 0;
+  margin-right: -4px;
   color: #ffffff;
   position: relative;
+  margin-bottom: -4px;
 }
 .bloc-projets li .content {
   width: 100%;
@@ -1102,6 +1119,16 @@ header {
   line-height: 0;
   position: relative;
   top: -2px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+.bloc-projets .projets-more:hover {
+  background: #2c2c35;
+  background-position: center 15px;
+  padding: 28px;
 }
 
 /* SERVICES */
@@ -1219,7 +1246,7 @@ header {
   background-position: -45px -45px;
 }
 .bloc-services .push-production .btn-push {
-  color: #2ce3be;
+  color: #29b3b2;
 }
 .bloc-services .push-production .btn-push:before {
   content: '';
@@ -1230,7 +1257,7 @@ header {
   margin-right: 10px;
   background: url(../img/pictos.png) no-repeat;
   background-size: 175%;
-  background-position: -12px 0;
+  background-position: -12px -10px;
 }
 .bloc-services .push-sound-design {
   background: #e75c5b;
@@ -1261,7 +1288,7 @@ header {
   margin-right: 10px;
   background: url(../img/pictos.png) no-repeat;
   background-size: 175%;
-  background-position: -12px 0;
+  background-position: -12px -21px;
 }
 .bloc-services .push-identity {
   background: #f89362;
@@ -1292,7 +1319,7 @@ header {
   margin-right: 10px;
   background: url(../img/pictos.png) no-repeat;
   background-size: 175%;
-  background-position: -12px 0;
+  background-position: -12px -31px;
 }
 
 /*# sourceMappingURL=main.css.map */

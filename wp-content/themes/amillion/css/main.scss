@@ -40,7 +40,7 @@
 
 	nav{
 		position: absolute;
-		bottom: 100px;
+		bottom: 140px;
 		left: -27px;
 		a{
 			display: block;
@@ -175,6 +175,11 @@
 		display: inline-block;
 		margin-top: 20px;
 		text-transform: uppercase;
+
+		&:before{
+			position: relative;
+			top: -1px;
+		}
 	}
 }
 
@@ -240,7 +245,7 @@
 
 .filter{
 	background: #27272f;
-	width: 33.333%;
+	width: 33.48%;
 	display: inline-block;
 	text-transform: uppercase;
 	color: #fff;
@@ -249,6 +254,7 @@
 	height: 54px;
 	line-height: 1em;
 	border: 0;
+	margin-right: -4px;
 }
 
 .filter-brand{
@@ -263,12 +269,16 @@
 	margin-top: 50px;
 	margin-bottom: 30px;
 
+	.projets-liste{
+	}
+
 	li{
-		width: 33.333%;
+		width: 33.48%;
 		display: inline-block;
-		margin-left: 0;
+		margin-right: -4px;
 		color: #ffffff;
 		position: relative;
+		margin-bottom: -4px;
 
 		.content{
 			width: 100%;
@@ -358,6 +368,13 @@
 		line-height: 0;
 		position: relative;
 		top: -2px;
+		@include transition(all 0.3s ease);
+
+		&:hover{
+			background: lighten(#27272f, 2);
+			background-position: center 15px;
+			padding: 28px;
+		}
 	}
 }
 
@@ -434,7 +451,6 @@
 			bottom: 30px;
 			left: 50%;
 			@include transform(translateX(-50%));
-
 		}
 	}
 
@@ -472,7 +488,7 @@
 		}
 
 		.btn-push{
-			color: $green;
+			color: #29b3b2;
 
 			&:before{
 				content: '';
@@ -483,7 +499,7 @@
 				margin-right: 10px;
 				background: url(../img/pictos.png) no-repeat;
 				background-size: 175%;
-				background-position: -12px 0;
+				background-position: -12px -10px;
 			}
 
 		}
@@ -509,7 +525,7 @@
 				margin-right: 10px;
 				background: url(../img/pictos.png) no-repeat;
 				background-size: 175%;
-				background-position: -12px 0;
+				background-position: -12px -21px;
 			}
 
 		}
@@ -535,7 +551,7 @@
 				margin-right: 10px;
 				background: url(../img/pictos.png) no-repeat;
 				background-size: 175%;
-				background-position: -12px 0;
+				background-position: -12px -31px;
 			}
 		}
 	}
