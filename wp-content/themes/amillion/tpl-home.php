@@ -35,8 +35,6 @@ get_header(); ?>
 		</nav>
 	</div>
 
-
-
 	<ul class="bxslider">
 
 		<?php

@@ -83,6 +83,23 @@
 			</div>
 		</a>
 
+		<div class="menu-main">
+			<div class="bloc-navigation">
+				<a href="#">Home</a>
+				<a href="#">Projects</a>
+				<a href="#">Services</a>
+				<a href="#">Contact</a>
+				<a class="link-library" href="#">Music library</a>
+				<a class="link-ondemand" href="#">On-demand</a>
+			</div>
+
+			<div class="bloc-contact">
+				<p><a href="mailto:contact@amillion.fr">contact@amillion.fr</a></p>
+				<p>438.821.9107</p>
+				<p><a class="ss-icon ss-social" href="">&#xF610;</a><a class="ss-icon ss-social" href="">&#xF611;</a></p>
+			</div>
+		</div>
+
 		<div class="slider"></div>
 
 
