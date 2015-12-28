@@ -13,7 +13,7 @@ get_header(); ?>
 
 		<div class='push push-library'>
 			<span>Order</span>
-			<p class="push-title">Music Library</p>
+			<p class="push-title">Music <br>Library</p>
 			<p>Pre-cleared music<br>Curated for ads</p>
 			<a href="#" class="btn btn-push">Access</a>
 		</div>
@@ -50,9 +50,13 @@ get_header(); ?>
 			if( $my_query->have_posts() ) {
 			  while ($my_query->have_posts()) : $my_query->the_post(); 
 
+			  $img = get_field('image_slideshow');
+
 			  ?>
 
-				<li style="background: url(<?php echo get_field('image_slideshow')['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+				<li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+			  		<a class="btn-play"></a>
+
 			  		<div class="content">
 			  			<h3><?php the_title(); ?></h3>
 				  		<p class="brand"><?php the_tags('', ', ', ''); ?></p>
@@ -72,7 +76,7 @@ get_header(); ?>
 
 <h2 class='title-nav'>Projets</h2>
 
-<div class="bloc bloc-projets">
+<div id="projets" class="bloc bloc-projets">
 
 	<div class="filters">
 		<span class="select-slash"></span>
@@ -113,9 +117,10 @@ get_header(); ?>
 			if( $my_query->have_posts() ) {
 			  while ($my_query->have_posts()) : $my_query->the_post(); 
 
+			  	$img = get_field('image_slideshow');
 			  ?>
 
-				<li style="background: url(<?php echo get_field('image_slideshow')['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+				<li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
 			  		<div class="content">
 			  			<div class="overlay">
 				  			<h3><?php the_title(); ?></h3>
@@ -142,7 +147,7 @@ get_header(); ?>
 <h2 class='title-nav'>Services</h2>
 
 
-<div class="bloc bloc-services">
+<div id="services" class="bloc bloc-services">
 
 	<div class="services-frame"></div>
 
@@ -153,28 +158,28 @@ get_header(); ?>
 	<div class="pushs">
 		<div class='push push-library'>
 			<span></span>
-			<p class="push-title">Music library</p>
+			<p class="push-title">Music<br>library</p>
 			<p>Find the perfect production music for your project from our library including a large sound variety, organized through different playlists</p>
 			<a href="#" class="btn btn-push">Access</a>
 		</div><!--
 
 		--><div class='push push-production'>
 			<span></span>
-			<p class="push-title">On demand production</p>
+			<p class="push-title">On demand<br>production</p>
 			<p>Give us a complete description for your project and receive a track fully meeting your needs</p>
 			<a href="#" class="btn btn-push">Fill a brief</a>
 		</div><!--
 
 		--><div class='push push-sound-design'>
 			<span></span>
-			<p class="push-title">Sound design</p>
+			<p class="push-title">Sound<br>design</p>
 			<p>We own a large sound bankable to give life to your project by adding sound environment, sound effects or FX</p>
 			<a href="#" class="btn btn-push">Get in touch</a>
 		</div><!--
 
 		--><div class='push push-identity'>
 			<span></span>
-			<p class="push-title">Sound identity</p>
+			<p class="push-title">Sound<br>identity</p>
 			<p>Sound identity is the brand’s sound DNA. <br>We create your jingles, radio spots and compositions to accompany your image</p>
 			<a href="#" class="btn btn-push">Get in touch</a>
 		</div>
@@ -182,7 +187,12 @@ get_header(); ?>
 
 </div>
 
-<div class="bloc bloc-contact">
+
+<h2 class='title-nav'>Services</h2>
+
+<div id="contact" class="bloc bloc-contact">
+
+	<?php echo do_shortcode( '[contact-form-7 id="4" title="Formulaire de contact"]' ); ?>
 
 </div>
 

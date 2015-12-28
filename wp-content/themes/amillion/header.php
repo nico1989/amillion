@@ -43,6 +43,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="wp-content/themes/amillion/js/jquery.bxslider.min.js" /></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="wp-content/themes/amillion/js/main.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 
@@ -54,55 +55,61 @@
 
 <body <?php body_class(); ?>>
 
+	<header id='top'>
+
 	<div class='top-bar'></div>
 
 	<div class='wrapper'>
 
-		<div class="bg">
-			<div class="scroll-a form rond1"></div>
-			<div class="scroll-b form petit-rond1"></div>
-			<div class="scroll-a form barre-gauche1"></div>
-			<div class="scroll-b form barre-gauche2"></div>
-			<div class="scroll-a form rond2"></div>
-			<div class="scroll-b form petit-rond2"></div>
-			<div class="scroll-a form rond3"></div>
-			<div class="scroll-b form petit-rond3"></div>
-			<div class="scroll-aform barre-droite1"></div>
+			<a class="logo" href="/">
+				<img alt="" src="wp-content/themes/amillion/img/logo-amillion.png" />
+			</a>
+
+			<a href="#" class="btn-menu">
+				<span class="txt">Menu</span>
+				<span class="bar"></span>
+				<div class="burger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</a>
+
+			<div class="menu-main">
+				<div class="ss-bloc-navigation">
+					<a class="hidden" href="#">Home</a>
+					<a class="hidden scroll-to" href="#projets">Projects</a>
+					<a class="hidden scroll-to" href="#services">Services</a>
+					<a class="hidden scroll-to" href="#contact">Contact</a>
+					<a class="hidden link-library" href="#">Music library</a>
+					<a class="hidden link-ondemand" href="#">On-demand</a>
+				</div>
+
+				<div class="ss-bloc-contact">
+					<p class="hidden" ><a href="mailto:contact@amillion.fr">contact@amillion.fr</a></p>
+					<p class="hidden" >438.821.9107</p>
+					<p class="hidden" ><a class="ss-icon ss-social" href="">&#xF610;</a><a class="ss-icon ss-social" href="">&#xF611;</a></p>
+				</div>
+			</div>
+
+			<div class="slider"></div>
+
+			
 		</div>
 
-		<a class="logo" href="/">
-			<img alt="" src="wp-content/themes/amillion/img/logo-amillion.png" />
-		</a>
+		</header>
 
-		<a href="#" class="btn-menu">Menu
-			<span class="bar"></span>
-			<div class="burger">
-				<span></span>
-				<span></span>
-				<span></span>
+		<div class="wrapper">
+
+			<div class="bg">
+				<div class="scroll-a form rond1"></div>
+				<div class="scroll-b form petit-rond1"></div>
+				<div class="scroll-a form barre-gauche1"></div>
+				<div class="scroll-b form barre-gauche2"></div>
+				<div class="scroll-b form rond2"></div>
+				<div class="scroll-a form petit-rond2"></div>
+				<div class="scroll-a form rond3"></div>
+				<div class="scroll-b form petit-rond3"></div>
+				<div class="scroll-a form barre-droite1"></div>
 			</div>
-		</a>
-
-		<div class="menu-main">
-			<div class="bloc-navigation">
-				<a href="#">Home</a>
-				<a href="#">Projects</a>
-				<a href="#">Services</a>
-				<a href="#">Contact</a>
-				<a class="link-library" href="#">Music library</a>
-				<a class="link-ondemand" href="#">On-demand</a>
-			</div>
-
-			<div class="bloc-contact">
-				<p><a href="mailto:contact@amillion.fr">contact@amillion.fr</a></p>
-				<p>438.821.9107</p>
-				<p><a class="ss-icon ss-social" href="">&#xF610;</a><a class="ss-icon ss-social" href="">&#xF611;</a></p>
-			</div>
-		</div>
-
-		<div class="slider"></div>
-
-
-
-
 

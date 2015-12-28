@@ -5,8 +5,8 @@
 @import '_ui';
 
 .slideshow-frame, .services-frame{
-	width: 1000px;
-	height: 560px;
+	width: $desktop-width;
+	height: 650px;
 	position: absolute;
 	left: 60px;
 	top: 60px;
@@ -40,7 +40,7 @@
 
 	nav{
 		position: absolute;
-		bottom: 140px;
+		bottom: 135px;
 		left: -27px;
 		a{
 			display: block;
@@ -55,10 +55,10 @@
 				background-size: 25px;
 
 				&:hover{
-					background: url(../img/nav-arrow-prev.png) no-repeat center lighten(#27272f, 2);
+					background: url(../img/nav-arrow-prev.png) no-repeat center #363640;
 					background-size: 25px;
-					background-position: center 15px;
-				}
+/*					background-position: center 15px;
+*/				}
 			}
 
 			&.next{
@@ -66,10 +66,10 @@
 				background-size: 25px;
 
 				&:hover{
-					background: url(../img/nav-arrow-next.png) no-repeat center lighten(#27272f, 2);
+					background: url(../img/nav-arrow-next.png) no-repeat center #363640;
 					background-size: 25px;
-					background-position: center 25px;
-				}
+/*					background-position: center 25px;
+*/				}
 			}
 		}
 	}
@@ -77,9 +77,9 @@
 
 
 .slideshow{
-	margin-top: 60px;
+	margin-top: 105px;
 	position: relative;
-	width: 1200px;
+	width: $desktop-width;
 
 	a, p, h3{
 		color: #ffffff;
@@ -88,8 +88,8 @@
 
 	.content{
 		position: absolute;
-		bottom: 40px;
-		left: 150px;
+		bottom: 33px;
+		left: 129px;
 	}
 
 	.trame{
@@ -101,8 +101,8 @@
 	}
 
 	li{
-		width: 1200px;
-		height: 525px;
+		width: $desktop-width;
+		height: 612px;
 	}
 
 	h3{
@@ -142,31 +142,57 @@
 
 .push{
 	width: 100%;
-	padding: 30px 40px;
-	width: 250px;
+	padding: 35px 60px 40px;
+	width: 300px;
 	text-align: center;
 
 	span{
 		font-family: $gotham-bold;
-		font-size: 14px;
+		font-size: 15px;
 		text-transform: uppercase;
 		color: #ffffff;
 		color: rgba(255, 255, 255, 0.7);
-		display: inline-block;
+		display: block;
+		margin: auto;
 	}
 
 	p{
 		font-family: $gotham-book;
-		font-size: 16px;
+		font-size: 18px;
 		text-transform: none;
+		line-height: 1em;
 	}
 
 	.push-title{
-		font-size: 30px;
+		font-size: 40px;
 		text-transform: uppercase;
 		font-family: $steelfish;
 		margin: 15px 0;
 		line-height: 1em;
+		position: relative;
+		display: inline-block;
+
+		&:before{
+			content: "";
+			position: absolute;
+			left: -45px;
+			display: inline-block;
+			top: 50%;
+			height: 1px;
+			width: 30px;
+			background: rgba(255,255,255, 0.44);
+		}
+
+		&:after{
+			content: "";
+			display: inline-block;
+			height: 1px;
+			width: 30px;
+			top: 50%;
+			position: absolute;
+			right: -45px;
+			background: rgba(255,255,255, 0.44);
+		}
 	}
 
 	.btn-push{
@@ -175,6 +201,7 @@
 		display: inline-block;
 		margin-top: 20px;
 		text-transform: uppercase;
+		font-size: 20px;
 
 		&:before{
 			position: relative;
@@ -184,7 +211,7 @@
 }
 
 .push-library{
-	background: $blue;
+	@include vertical-gradient(#2475a1, #214695);
 	.btn-push{
 		color: $blue;
 
@@ -204,7 +231,7 @@
 
 
 .push-production{
-	background: $green;
+	@include vertical-gradient(#2ce1be, #29b2b2);
 
 	.btn-push{
 		color: $green;
@@ -221,6 +248,7 @@
 			background-position: -12px -10px;
 		}
 	}
+
 }
 
 
@@ -235,7 +263,7 @@
 .select-slash{
 	display: block;
 	position: absolute;
-	left: 33%;
+	left: 33.29%;
 	top: 11px;
 	height: 30px;
 	width: 1px;
@@ -273,7 +301,7 @@
 	}
 
 	li{
-		width: 33.48%;
+		width: 33.43%;
 		display: inline-block;
 		margin-right: -4px;
 		color: #ffffff;
@@ -379,8 +407,106 @@
 }
 
 
+/* CONTACT */
 
+.bloc-contact{
 
+	background: #eeeeee;
+	padding: 60px 0;
+	font-family: $gotham-book;
+	margin-top: 60px;
+	padding-bottom: 100px;
+	margin-bottom: 140px;
+
+	::-webkit-input-placeholder {
+	   color: #aaa;
+	   font-family: $gotham-book-italic;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: #aaa;
+	   font-family: $gotham-book-italic; 
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: #aaa;
+	   font-family: $gotham-book-italic;
+	}
+
+	:-ms-input-placeholder {  
+	   color: #aaa;
+	   font-family: $gotham-book-italic;  
+	}
+
+	h3{
+		font-size: 23px;
+		text-transform: uppercase;
+		font-family: $gotham-bold;
+
+		&:after{
+			content: "";
+			display: block;
+			height: 1px;
+			width: 30px;
+			margin-top: 15px;
+			background: #696969;
+			background: $black;
+		}
+	}
+
+	p{
+		text-transform: uppercase;
+		font-family: $gotham-bold;
+		margin-top: 25px;
+	}
+
+	.subtitle{
+		font-family: $gotham-book-italic;
+	}
+
+	.col{
+		display: inline-block;
+		vertical-align: bottom;
+		width: 50%;
+		padding: 0 50px;
+		position: relative;
+	}
+
+	.col-a{
+		margin-right: -8px;
+	}
+
+	input, textarea{
+		border: 3px solid #aaaaaa;
+		padding: 20px 20px;
+		background: #ffffff;
+		margin-top: 15px;
+		width: 100%;
+	}
+
+	textarea{
+		height: 257px;
+	}
+
+	input[type="submit"]{
+		float: right;
+		background: #27272f;
+		border: 0;
+		font-family: $steelfish;
+		color: #fff;
+		font-size: 20px;
+		padding: 10px 20px;
+		
+		
+	}
+
+	.submit{
+		right: 50px;
+		bottom: -90px;
+		position: absolute;	
+	}
+
+}
 
 
 /* SERVICES */
@@ -390,6 +516,7 @@
 
 	.services-frame{
 		top: 0;
+		height: 800px;
 	}
 
 	h4{
@@ -426,8 +553,8 @@
 	.push{
 		display: inline-block;
 		vertical-align: top;
-		height: 380px;
-		width: 250px;
+		height: 430px;
+		width: 25%;
 		position: relative;
 
 		span{
@@ -440,6 +567,7 @@
 
 		.push-title{
 			color: #fff;
+			margin: 20px 0 30px;
 		}
 
 		p{

@@ -12,11 +12,13 @@
 html{
 	overflow-x: hidden;
 	font-family: $steelfish;
+	position: relative;
 }
 
 body{
 	background: $dark-white;
 	background: url(../img/bg-bruit.jpg) repeat;
+	overflow: scroll;
 }
 
 img{
@@ -51,6 +53,7 @@ h2{
 	color: $black;
 	text-align: center;
 	text-transform: uppercase;
+	margin: 30px 0;
 }
 
 textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"]{
@@ -105,25 +108,79 @@ h3{
 	font-family: $steelfish;
 }
 
+.subtitle{
+	font-family: $gotham-book-italic;
+	font-size: 21px;
+	line-height: 25px;
+	text-transform: uppercase;
+}
+
+.btn-play{
+	height: 0;
+	width: 0;
+	display: block;
+	border-right: 0;
+	border-top: 28px solid transparent;
+	border-bottom: 28px solid transparent;
+	border-left: 34px solid #fff;
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%));
+}
+
+header{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	padding-bottom: 45px;
+	z-index: 999;
+
+	&.small{
+		.logo:after{
+			@include opacity(0);
+		}
+
+		.wrapper{
+			padding-top: 10px;
+		}
+	}
+}
+
+
 .menu-main{
 	background: $grey;
 	padding: 10px 55px;
-	position: absolute; 
-	top: 100px;
+	position: absolute;
+	top: 0;
 	right: 0;
 	width: 280px;
 	text-align: right;
+	padding-top: 110px;
 	padding-bottom: 50px;
 	z-index: -1;
+	display: none;
 	@include opacity(0);
-	@include transition(opacity 0.1s ease 0.1s);
+	@include transition(all 0.2s ease-in);
 
 	&.open{
-		z-index: 999;
 		@include opacity(1);
 	}
 
-	.bloc-navigation{
+	a,p{
+		@include opacity(1);
+		@include transform(translateX(0));
+		@include transition(all 0.2s ease)
+	}
+
+	.hidden{
+		@include opacity(0);
+		@include transform(translateX(-10px));
+	}
+
+	.ss-bloc-navigation{
 		margin-bottom: 60px;
 
 		a{
@@ -141,7 +198,7 @@ h3{
 		}
 	}
 
-	.bloc-contact{
+	.ss-bloc-contact{
 		p, a{
 			text-transform: none;
 			font-size: 15px;
@@ -194,6 +251,24 @@ h3{
 }
 
 
+.picto{
+	background: url(../img/pictos.png) no-repeat;
+	display: inline-block;
+	vertical-align: bottom;
+	width: 16px;
+	height: 18px;
+	margin-right: 5px;
+}
+
+.picto-mail{
+	background-position: -3px -45px;
+}
+
+.picto-tel{
+	background-position: -3px -64px;
+}
+
+
 .bloc{
 	position: relative;
 }
@@ -206,12 +281,14 @@ h3{
 	margin-bottom: 30px;
 }
 
+.bx-wrapper, .bx-viewport{
+	left: 0;
+}
+
 .wrapper{
-	width: 1000px;
+	width: 1400px;
 	margin: auto;
-	padding-top: 25px;
-	background: $dark-white;
-	background: url(../img/bg-bruit.jpg) repeat;
+	padding-top: 40px;
 	position: relative;
 }
 
@@ -224,12 +301,12 @@ h3{
 }
 
 .top-bar{
-	position: fixed;
+	position: absolute;
 	top: 0;
 }
 
 .bottom-bar{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 }
 
@@ -237,8 +314,12 @@ h3{
 	text-transform: uppercase;
 	font-size: 18px;
 	float: right;
+	margin-right: 20px;
 	font-family: $gotham-bold;
 	color: $black;
+
+	.txt{
+	}
 
 	.bar{
 		display: inline-block; 
@@ -262,7 +343,24 @@ h3{
 			@include gradient(#333, #333);
 			display: block;
 			margin-top: 3px;
+			left: 0;
+			position: relative;
 			@include transition(all 0.2s ease-out);
+		}
+
+	}
+
+	&.open{
+		color: #fff;
+
+		.burger span{
+			background: #fff;
+		}
+
+		&:hover{
+			.burger span{
+				background: #fff;
+			}
 		}
 	}
 
@@ -274,9 +372,14 @@ h3{
 
 		.burger span:nth-child(1), 
 		.burger span:nth-child(3){
-			@include transform(translateX(-3px));
+			left: -3px;
 		}
 
+		&.open .burger span:nth-child(1), 
+		&.open .burger span:nth-child(3){
+			left: 0;
+		}
+		
 	}
 
 }
@@ -287,6 +390,7 @@ h3{
 	z-index: -1;
 	.form{
 		position: absolute;
+		@include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1));
 	}
 }
 
@@ -317,7 +421,7 @@ h3{
 	width: 250px;
 	height: 470px;
 	top: 1045px;
-	left: -250px;
+	left: -210px;
 }
 .barre-gauche2{
 	background: url(../img/barre-gauche2.png) no-repeat center;
@@ -332,7 +436,7 @@ h3{
 	background-size: cover;
 	width: 250px;
 	height: 250px;
-	left: 850px;
+	left: 1250px;
 	top: 850px;
 }
 .petit-rond2{
@@ -341,7 +445,7 @@ h3{
 	width: 70px;
 	height: 70px;
 	top: 1145px;
-	left: 1050px;
+	left: 1450px;
 }
 .rond3{
 	background: url(../img/rond3.png) no-repeat center;
@@ -365,19 +469,24 @@ h3{
 	width: 130px;
 	height: 230px;
 	top: 1740px;
-	left: 975px;
+	left: 1175px;
 }
 
 /**** HEADER ****/
 
 header{
 	padding-top: 15px;
+
+	.wrapper{
+		@include transition(all 0.5s ease-out);
+	}
 }
 
 .logo{
 	display: inline-block;
 	width: 190px;
 	position: relative;
+	
 
 	&:after{
 		content:"Music library \A On-demand production ";
@@ -389,6 +498,107 @@ header{
 		right: -108%;
 		font-size: 14px;
 		line-height: 1.15em;
+		@include opacity(1);
+		@include transition(all 0.3s ease-in);
+
+	}
+}
+
+
+/**** FOOTER *****/
+
+
+footer{
+	background: $grey;
+	padding: 30px 0 100px;
+	width: 100%;
+	position: absolute;
+
+	.logo{
+		display: block;
+
+		&:after{
+			color: #fff;
+		}
+	}
+
+	hr{
+		display: block;
+		width: 100%;
+		height: 1px;
+		background: #c9c9c9;
+		background: rgba(201,201,201,0.5);
+		margin: 40px 0;
+		border: 0;
+	}
+}
+
+.btn-backtotop{
+	position: absolute;
+	top: -80px;
+	right: 0;
+	display: block;
+	height: 50px;
+	width: 50px;
+	background: #27272f;
+	color: #fff;
+	@include transition(all 0.2s ease);
+	background: url(../img/nav-arrow-prev.png) no-repeat center #27272f;
+	background-size: 25px;
+
+	&:hover{
+		background: url(../img/nav-arrow-prev.png) no-repeat center lighten(#27272f, 2);
+		background-size: 25px;
+	}
+}
+
+.col-footer{
+	display: inline-block;
+	width: 25%;
+	vertical-align: top;
+	padding-right: 120px;
+
+	a{
+		color: #fff;
+		font-size: 17px;
+		line-height: 1em;
+		margin-bottom: 8px;
+		font-family: $gotham-bold;
+		display: block;
+		text-transform: uppercase;
+	}
+
+	.font-italic{
+		font-family: $gotham-book-italic;
+		@include opacity(0.45);
+	}
+}
+
+.col-footer-contact{
+	a{
+		text-transform: none;
+		font-size: 15px;
+		font-family: $gotham-book;
+		line-height: 1.15em;
+	}
+
+
+	.ss-icon{
+		font-family: $social;
+		color: $grey;
+		background: #ffffff;
+		width: 33px;
+		margin-right: 20px;
+		text-align: center;
+		padding: 18px 0 14px;
+		font-size: 15px;
+		line-height: 0;
+		margin-top: 5px;
+		display: inline-block;
+
+		&:hover{
+			background: #51515B;
+		}
 	}
 }
 
