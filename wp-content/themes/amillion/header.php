@@ -14,6 +14,13 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width">
 
+	<?php 
+	if ($_SERVER['HTTP_HOST'] == 'localhost:8888') : ?>
+		<base href="http://localhost:8888/amillion/" />
+	<?php else : ?>
+		<base href="/" />
+	<?php endif; ?>
+
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="wp-content/themes/amillion/img/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="wp-content/themes/amillion/img/apple-touch-icon-60x60.png">
@@ -86,8 +93,8 @@
 				</div>
 
 				<div class="ss-bloc-contact">
-					<p class="hidden" ><a href="mailto:contact@amillion.fr">contact@amillion.fr</a></p>
-					<p class="hidden" >438.821.9107</p>
+					<p class="hidden" ><a href="mailto:contact@amillion.fr">contact@amillion.fr<span class="picto picto-mail"></span></a></p>
+					<p class="hidden" >438.821.9107<span class="picto picto-tel"></span></p>
 					<p class="hidden" ><a class="ss-icon ss-social" href="">&#xF610;</a><a class="ss-icon ss-social" href="">&#xF611;</a></p>
 				</div>
 			</div>
@@ -99,9 +106,8 @@
 
 		</header>
 
-		<div class="wrapper">
-
-			<div class="bg">
+		<div class="bg">
+			<div class="wrapper">
 				<div class="scroll-a form rond1"></div>
 				<div class="scroll-b form petit-rond1"></div>
 				<div class="scroll-a form barre-gauche1"></div>
@@ -112,4 +118,5 @@
 				<div class="scroll-b form petit-rond3"></div>
 				<div class="scroll-a form barre-droite1"></div>
 			</div>
+		</div>
 

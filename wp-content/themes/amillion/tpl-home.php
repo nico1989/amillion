@@ -7,20 +7,58 @@ Template Name: Home
 
 get_header(); ?>
 
-<div class="slideshow">
+<div id="popin" class="popin">
+
+	<a href="#" class="btn-close-popin">
+		<span class="txt">Close</span>
+		<span class="bar"></span>
+		<div class="burger">
+			<span></span>
+			<span></span>
+		</div>
+	</a>
+
+	<div class="clear"></div>
+
+	<div class="content">
+		<h2>#4seasons</h2>
+		<p class="brand">Red bull</p>
+		<p class="type">Red bull</p>
+
+		<p class="description">Music design for Mathias Dandois performing flat BMX for each seasons. We have produced the music for Summer and Winter part remixing Vivaldi Four seasons original piece.</p>
+	</div><!--
+
+	--><div class="slideshow popin-slideshow">
+
+		<div class="slideshow-frame">
+			<nav>
+				<a class="prev" href=""></a>
+				<a class="next" href=""></a>
+			</nav>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+<div class="wrapper main-wrapper">
+
+<div class="slideshow main-slideshow">
 
 	<div class='pushs'>
 
 		<div class='push push-library'>
-			<span>Order</span>
-			<p class="push-title">Music <br>Library</p>
+			<span>Explore</span>
+			<p class="push-title">Music<br>Library</p>
 			<p>Pre-cleared music<br>Curated for ads</p>
 			<a href="#" class="btn btn-push">Access</a>
 		</div>
 
 		<div class='push push-production'>
 			<span>Order</span>
-			<p class="push-title">On demand production</p>
+			<p class="push-title">On demand<br>production</p>
 			<p>Exclusive license<br>All rights included</p>
 			<a href="#" class="btn btn-push">Fill a brief</a>
 		</div>
@@ -33,6 +71,8 @@ get_header(); ?>
 			<a class="prev" href=""></a>
 			<a class="next" href=""></a>
 		</nav>
+
+		<span class='right-border'></span>
 	</div>
 
 	<ul class="bxslider">
@@ -54,7 +94,7 @@ get_header(); ?>
 
 			  ?>
 
-				<li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+				<li data-id='<?php the_ID(); ?>' style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
 			  		<a class="btn-play"></a>
 
 			  		<div class="content">
@@ -74,7 +114,7 @@ get_header(); ?>
 
 </div>
 
-<h2 class='title-nav'>Projets</h2>
+<h2 class='title-nav'><a class="scroll-to" href="#projets">Projets</a></h2>
 
 <div id="projets" class="bloc bloc-projets">
 
@@ -123,9 +163,11 @@ get_header(); ?>
 				<li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
 			  		<div class="content">
 			  			<div class="overlay">
-				  			<h3><?php the_title(); ?></h3>
-					  		<p class="brand"><?php the_tags('', ', ', ''); ?></p>
-					  		<p class="type"><?php the_category( ', ' ); ?></p>
+				  			<div>
+				  				<h3><?php the_title(); ?></h3>
+						  		<p class="brand"><?php the_tags('', ', ', ''); ?></p>
+						  		<p class="type"><?php the_category( ', ' ); ?></p>
+						  	</div>
 					  	</div>
 				  	</div>
 			  	</li>
@@ -144,7 +186,7 @@ get_header(); ?>
 
 </div>
 
-<h2 class='title-nav'>Services</h2>
+<h2 class='title-nav'><a class="scroll-to" href="#services">Services</a></h2>
 
 
 <div id="services" class="bloc bloc-services">
@@ -156,28 +198,28 @@ get_header(); ?>
 	<p>We are able to create adapted soundtracks, synchronized to visual such as advertising movies, documentaries or digital content. <br>Our services offer is presented below: </p>
 	
 	<div class="pushs">
-		<div class='push push-library'>
+		<div class='push push-service push-library'>
 			<span></span>
 			<p class="push-title">Music<br>library</p>
 			<p>Find the perfect production music for your project from our library including a large sound variety, organized through different playlists</p>
 			<a href="#" class="btn btn-push">Access</a>
 		</div><!--
 
-		--><div class='push push-production'>
+		--><div class='push push-service push-production'>
 			<span></span>
 			<p class="push-title">On demand<br>production</p>
 			<p>Give us a complete description for your project and receive a track fully meeting your needs</p>
 			<a href="#" class="btn btn-push">Fill a brief</a>
 		</div><!--
 
-		--><div class='push push-sound-design'>
+		--><div class='push push-service push-sound-design'>
 			<span></span>
 			<p class="push-title">Sound<br>design</p>
 			<p>We own a large sound bankable to give life to your project by adding sound environment, sound effects or FX</p>
 			<a href="#" class="btn btn-push">Get in touch</a>
 		</div><!--
 
-		--><div class='push push-identity'>
+		--><div class='push push-service push-identity'>
 			<span></span>
 			<p class="push-title">Sound<br>identity</p>
 			<p>Sound identity is the brand’s sound DNA. <br>We create your jingles, radio spots and compositions to accompany your image</p>
@@ -188,7 +230,7 @@ get_header(); ?>
 </div>
 
 
-<h2 class='title-nav'>Services</h2>
+<h2 class='title-nav'><a class="scroll-to" href="#contact">Contact</a></h2>
 
 <div id="contact" class="bloc bloc-contact">
 
@@ -208,13 +250,13 @@ get_header(); ?>
 
 		});
 
-		$('.slideshow .prev').on('click', function(e){
+		$('.slideshow.main-slideshow .prev').on('click', function(e){
 			e.preventDefault();
 
 			slideshow.goToPrevSlide();
 		});
 
-		$('.slideshow .next').on('click', function(e){
+		$('.slideshow.main-slideshow .next').on('click', function(e){
 			e.preventDefault();
 
 			slideshow.goToNextSlide();

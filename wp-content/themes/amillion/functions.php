@@ -56,55 +56,115 @@ add_action('wp_enqueue_scripts', 'ajax_filter_posts_scripts', 100);
 
 
 // Script for getting posts
-function ajax_filter_get_posts( $taxonomy, $term ) {
+function ajax_filter_get_posts( $id = NULL, $taxonomy, $term ) {
  
   // Verify nonce
   if( !isset( $_POST['afp_nonce'] ) || !wp_verify_nonce( $_POST['afp_nonce'], 'afp_nonce' ) )
     die('Permission denied');
- 
-  $taxonomy = $_POST['taxonomy'];
-  $term = $_POST['term'];
-  
-  // WP Query
-  $args = array(
-    'tax_query' => array(
-		array(
-			'taxonomy' => $taxonomy,
-			'field'    => 'slug',
-			'terms'    => $term,
-		),
-	),
-    'post_type' => 'projets',
-    'posts_per_page' => 10,
-  );
- 
-  // If taxonomy is not set, remove key from array and get all posts
-  if( !$taxonomy ) {
-    unset( $args['tag'] );
-  }
- 
-  $query = new WP_Query( $args );
- 
-  if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); 
-    $img = get_field('image_slideshow');
-  ?>
+      
+    $id = !empty($_POST['id']) ? $_POST['id'] : null;
 
-    <li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
-      <div class="content">
-        <div class="overlay">
-          <h3><?php the_title(); ?></h3>
-          <p class="brand"><?php the_tags('', ', ', ''); ?></p>
-          <p class="type"><?php the_category( ', ' ); ?></p>
-        </div>
-      </div>
-    </li>
- 
-    <?php the_excerpt(); ?>
- 
-  <?php endwhile; ?>
-  <?php else: ?>
-    <h2>No projects found</h2>
-  <?php endif;
+    var_dump($id);
+
+  if(!empty($id)){
+
+      $args = array(
+        'p' => $id,
+        'post_type' => 'projets',
+        'posts_per_page' => 10,
+      );
+
+      $query = new WP_Query( $args );
+     
+      if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); 
+        $img = get_field('image_slideshow');
+
+        var_dump(get_the_title());
+
+      ?>
+
+        <?php
+
+      if( have_rows('medias') ):
+
+          while ( have_rows('medias') ) : the_row();
+              
+              if( get_row_layout() == 'photo' ): 
+                $img = get_sub_field('image'); 
+              ?>
+
+              <li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;"></li>
+
+              <?php elseif( get_row_layout() == 'video' ):  ?>
+
+                <li><iframe frameborder="0"; width="100%"; height="100%"; src="<?php echo get_sub_field('url'); ?>" /></li>
+
+              <?php endif;
+
+          endwhile;
+
+      else :
+
+          // no layouts found
+
+      endif;
+
+      ?>
+     
+        <?php the_excerpt(); ?>
+     
+      <?php endwhile; ?>
+      <?php else: ?>
+        <h2>No projects found</h2>
+      <?php endif;
+
+  }else{
+
+      $taxonomy = $_POST['taxonomy'];
+      $term = $_POST['term'];
+      
+      // WP Query
+      $args = array(
+        'tax_query' => array(
+        array(
+          'taxonomy' => $taxonomy,
+          'field'    => 'slug',
+          'terms'    => $term,
+        ),
+      ),
+        'post_type' => 'projets',
+        'posts_per_page' => 10,
+      );
+
+      // If taxonomy is not set, remove key from array and get all posts
+      if( !$taxonomy ) {
+        unset( $args['tag'] );
+      }
+     
+      $query = new WP_Query( $args );
+     
+      if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); 
+        $img = get_field('image_slideshow');
+      ?>
+
+        <li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+          <div class="content">
+            <div class="overlay">
+              <h3><?php the_title(); ?></h3>
+              <p class="brand"><?php the_tags('', ', ', ''); ?></p>
+              <p class="type"><?php the_category( ', ' ); ?></p>
+            </div>
+          </div>
+        </li>
+     
+        <?php the_excerpt(); ?>
+     
+      <?php endwhile; ?>
+      <?php else: ?>
+        <h2>No projects found</h2>
+      <?php endif;
+
+  }
  
   die();
 }

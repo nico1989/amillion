@@ -14,6 +14,14 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 ); /* IE6 */  
 }
 
+@mixin shortGradient($colorA, $colorB){
+    background: $colorA; /* Old browsers */
+    background: -moz-linear-gradient(left, $colorA, 0%, $colorA 0%, $colorB 50%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $colorA 0%,$colorA 0%,$colorB 50%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, $colorA 0%,$colorA 0%,$colorB 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorA', endColorstr='$colorB',GradientType=1 ); /* IE6 */  
+}
+
 @mixin vertical-gradient($colorA, $colorB){
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
     background: $colorA; /* Old browsers */

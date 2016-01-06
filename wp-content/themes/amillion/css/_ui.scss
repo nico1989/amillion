@@ -38,6 +38,11 @@ p{
 	margin: 10px 0;
 }
 
+.clear{
+	display: block;
+	clear: both;
+}
+
 a{
 	text-decoration: none;
 	color: $black;
@@ -49,11 +54,15 @@ h1{
 
 h2{
 	font-family: $gotham-bold;
-	font-size: 18px;
+	font-size: 0.875em;
 	color: $black;
 	text-align: center;
 	text-transform: uppercase;
-	margin: 30px 0;
+	margin: 23px 0;
+}
+
+h3{
+	font-weight: normal;
 }
 
 textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"]{
@@ -81,28 +90,38 @@ textarea, select, input[type="date"], input[type="datetime"], input[type="dateti
 }
 
 select{
-
 	background:#fff url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==);
 	background-repeat: no-repeat;
 	background-position: 97% center;
 	padding:0 25px 0 8px;
 	font-size: .875em
-
 }
 
 .title-nav{
-	&:after{
+	z-index: 2;
+	position: relative;
+
+	a:after{
 		content: '';
 		display: block;
 		width: 9px;
 		height: 15px;
 		background: url(../img/pictos.png) no-repeat;
 		background-size: 275%;
-		background-position: 0 0;
+		background-position: 0 7px;
 		margin: auto;
-		margin-top: 10px;
+		padding-top: 10px;
+		@include transition(all 0.3s ease-out);
+		@include transform(translateY(0));
 	}
+
+	a:hover:after{
+		@include transform(translateY(3px));
+	}
+
+	
 }
+
 
 h3{
 	font-family: $steelfish;
@@ -110,8 +129,8 @@ h3{
 
 .subtitle{
 	font-family: $gotham-book-italic;
-	font-size: 21px;
-	line-height: 25px;
+	font-size: 1em;
+	line-height: 1.125em;
 	text-transform: uppercase;
 }
 
@@ -130,15 +149,22 @@ h3{
 	@include transform(translate(-50%));
 }
 
+
+
 header{
 	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
-	padding-bottom: 45px;
+	padding-bottom: 30px;
 	z-index: 999;
+	padding-top: 15px;
+	@include transition(all 0.3s ease);
 
 	&.small{
+
+		background: #f9f9f9;
+
 		.logo:after{
 			@include opacity(0);
 		}
@@ -152,11 +178,11 @@ header{
 
 .menu-main{
 	background: $grey;
-	padding: 10px 55px;
+	padding: 8px 38px;
 	position: absolute;
-	top: 0;
+	top: 15px;
 	right: 0;
-	width: 280px;
+	width: 225px;
 	text-align: right;
 	padding-top: 110px;
 	padding-bottom: 50px;
@@ -181,7 +207,7 @@ header{
 	}
 
 	.ss-bloc-navigation{
-		margin-bottom: 60px;
+		margin-bottom: 71px;
 
 		a{
 			border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -201,9 +227,19 @@ header{
 	.ss-bloc-contact{
 		p, a{
 			text-transform: none;
-			font-size: 15px;
 			font-family: $gotham-book;
 			color: #ffffff;
+			font-size: 1em;
+		}
+
+		.picto{
+			margin-left: 9px;
+		}
+
+		&>p, &>a{
+			margin: 5px 0;
+			display: inline-block;
+			font-size: 0.75em;
 		}
 
 		p a{
@@ -214,11 +250,11 @@ header{
 			font-family: $social;
 			color: $grey;
 			background: #ffffff;
-			width: 33px;
-			margin-left: 20px;
+			width: 25px;
+			margin-left: 15px;
 			text-align: center;
-			padding: 18px 0 14px;
-			font-size: 15px;
+			padding: 15px 0 10px;
+			font-size: 0.9em;
 			line-height: 0;
 			margin-top: 5px;
 
@@ -230,18 +266,16 @@ header{
 
 	a{
 		font-family: $gotham-bold;
- 		font-size: 17px;
+ 		font-size: 0.875em;
 		text-transform: uppercase;
 		color: #ccc;
 		color: rgba(255, 255, 255, 0.4);
 		display: block;
 		@include transition(all 0.2s ease);
 
-
-
 		&.link-library{
-			margin-top: 50px;
-			color: $blue;
+			margin-top: 56px;
+			color: #2a61d6;
 		}
 
 		&.link-ondemand{
@@ -281,15 +315,16 @@ header{
 	margin-bottom: 30px;
 }
 
-.bx-wrapper, .bx-viewport{
-	left: 0;
-}
 
 .wrapper{
-	width: 1400px;
+	width: $wrapper-width;
 	margin: auto;
 	padding-top: 40px;
 	position: relative;
+
+	&.main-wrapper{
+		padding-top: 70px;
+	}
 }
 
 .top-bar, .bottom-bar{
@@ -314,7 +349,7 @@ header{
 	text-transform: uppercase;
 	font-size: 18px;
 	float: right;
-	margin-right: 20px;
+	margin-right: 17px;
 	font-family: $gotham-bold;
 	color: $black;
 
@@ -323,7 +358,7 @@ header{
 
 	.bar{
 		display: inline-block; 
-		margin-left: 15px;
+		margin-left: 10px;
 		margin-top: 38px;
 		width: 1px;
 		height: 13px;
@@ -336,6 +371,7 @@ header{
 		display: inline-block;
 		position: relative;
 		margin-left: 12px;
+		bottom: -1px;
 
 		span{
 			width: 100%;
@@ -388,6 +424,7 @@ header{
 	position: fixed;
 	width: 100%;
 	z-index: -1;
+	padding-top: 65px;
 	.form{
 		position: absolute;
 		@include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1));
@@ -397,6 +434,7 @@ header{
 .bx-wrapper .bx-viewport{
 	border: 0;
 	box-shadow: none;
+	left: 0;
 }
 
 .rond1{
@@ -475,7 +513,6 @@ header{
 /**** HEADER ****/
 
 header{
-	padding-top: 15px;
 
 	.wrapper{
 		@include transition(all 0.5s ease-out);
@@ -495,7 +532,7 @@ header{
 		font-family: $gotham-bold;
 		position: absolute;
 		bottom: 0;
-		right: -108%;
+		right: -208px;
 		font-size: 14px;
 		line-height: 1.15em;
 		@include opacity(1);
@@ -535,11 +572,11 @@ footer{
 
 .btn-backtotop{
 	position: absolute;
-	top: -80px;
+	top: -68px;
 	right: 0;
 	display: block;
-	height: 50px;
-	width: 50px;
+	height: 38px;
+	width: 38px;
 	background: #27272f;
 	color: #fff;
 	@include transition(all 0.2s ease);
@@ -556,11 +593,11 @@ footer{
 	display: inline-block;
 	width: 25%;
 	vertical-align: top;
-	padding-right: 120px;
+	padding-right: 90px;
 
 	a{
 		color: #fff;
-		font-size: 17px;
+		font-size: 0.875em;
 		line-height: 1em;
 		margin-bottom: 8px;
 		font-family: $gotham-bold;
@@ -575,9 +612,11 @@ footer{
 }
 
 .col-footer-contact{
+	padding-right: 0;
+
 	a{
 		text-transform: none;
-		font-size: 15px;
+		font-size: 1em;
 		font-family: $gotham-book;
 		line-height: 1.15em;
 	}
@@ -587,11 +626,11 @@ footer{
 		font-family: $social;
 		color: $grey;
 		background: #ffffff;
-		width: 33px;
-		margin-right: 20px;
+		width: 25px;
+		margin-right: 15px;
 		text-align: center;
-		padding: 18px 0 14px;
-		font-size: 15px;
+		padding: 15px 0 10px;
+		font-size: 11px;
 		line-height: 0;
 		margin-top: 5px;
 		display: inline-block;
