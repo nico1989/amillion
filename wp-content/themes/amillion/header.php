@@ -1,24 +1,25 @@
-<?php
-/**
- * The template for displaying the header
- *
- * Displays all of the head element and everything up until the "site-content" div.
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
+	<title>Amillion - Music Library & On-Demand Production</title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=1050">
+	<meta name="description" content="Specialized in Sound and Music design, Amillion is a company able to create adapted soundtracks, synchronized to visuals such as advertising movies, documentaries or digital content.">
+	<meta name="keywords" content="amillion, music, design, composer, production, on-demand, video, videomaker, edit, sound, library, producer, synchro"> 
+	
+	<!-- Open Graph data -->
+	<meta property="og:title" content="Amillion - Music Library & On-Demand Production" />
+	<meta property="og:url" content="http://amillion.fr" />
+	<meta property="og:image" content="http://amillion.fr/wp-content/themes/amillion/img/share.jpg" />
+	<meta property='og:description' content='Specialized in Sound and Music design, Amillion is a company able to create adapted soundtracks, synchronized to visuals such as advertising movies, documentaries or digital content.' /> 
+	<meta property="og:site_name" content="Amillion" />
 
 	<?php 
+
 	if ($_SERVER['HTTP_HOST'] == 'localhost:8888') : ?>
 		<base href="http://localhost:8888/amillion/" />
 	<?php else : ?>
-		<base href="/" />
+		<base href="http://amillion.fr/" />
 	<?php endif; ?>
 
 	<!-- Favicons -->
@@ -42,7 +43,6 @@
 	<meta name="theme-color" content="#ffffff">
 	<!-- end favicons -->
 
-
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" href="wp-content/themes/amillion/css/jquery.bxslider.css" type="text/css" />
@@ -50,9 +50,8 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="wp-content/themes/amillion/js/jquery.bxslider.min.js" /></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script src="wp-content/themes/amillion/js/main.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
@@ -63,6 +62,8 @@
 <body <?php body_class(); ?>>
 
 	<header id='top'>
+
+	<div class='loader loader-welcome'><img alt="Loader" src="wp-content/themes/amillion/img/loader.gif" /></div>
 
 	<div class='top-bar'></div>
 
@@ -83,25 +84,27 @@
 			</a>
 
 			<div class="menu-main">
+
+				<?php $ancre = is_page( 'home' ) ? 'scroll-to' : ''; ?>
+
 				<div class="ss-bloc-navigation">
-					<a class="hidden" href="#">Home</a>
-					<a class="hidden scroll-to" href="#projets">Projects</a>
-					<a class="hidden scroll-to" href="#services">Services</a>
-					<a class="hidden scroll-to" href="#contact">Contact</a>
-					<a class="hidden link-library" href="#">Music library</a>
-					<a class="hidden link-ondemand" href="#">On-demand</a>
+					<a class="hidden <?php echo $ancre; ?>" href="<?php echo is_page( 'home' ) ? 'body' : './'; ?>">Home</a>
+					<a class="hidden <?php echo $ancre; ?>" href="<?php echo !empty($ancre) ? '#projets' : './?section=projets'; ?>">Projects</a>
+					<a class="hidden <?php echo $ancre; ?>" href="<?php echo !empty($ancre) ? '#services' : './?section=services'; ?>">Services</a>
+					<a class="hidden <?php echo $ancre; ?>" href="<?php echo !empty($ancre) ? '#contact' : './?section=contact'; ?>">Contact</a>
+					<a class="hidden link-library" href="music-library">Music library</a>
+					<a class="hidden link-ondemand" href="on-demand-production">On-demand</a>
 				</div>
 
 				<div class="ss-bloc-contact">
-					<p class="hidden" ><a href="mailto:contact@amillion.fr">contact@amillion.fr<span class="picto picto-mail"></span></a></p>
-					<p class="hidden" >438.821.9107<span class="picto picto-tel"></span></p>
-					<p class="hidden" ><a class="ss-icon ss-social" href="">&#xF610;</a><a class="ss-icon ss-social" href="">&#xF611;</a></p>
+					<p class="hidden" >contact@amillion.fr<span class="ss-standard ss-mail"></span></p>
+					<p class="hidden" >438.821.9107<span class="ss-standard ss-phone"></span></p>
+					<p class="hidden" ><a class="ss-icon ss-social" target="_blank" href="https://www.facebook.com/millionbeats/">&#xF610;</a><a class="ss-icon ss-social" target="_blank" href="https://twitter.com/MillionBeats">&#xF611;</a></p>
 				</div>
 			</div>
 
 			<div class="slider"></div>
 
-			
 		</div>
 
 		</header>
@@ -112,11 +115,13 @@
 				<div class="scroll-b form petit-rond1"></div>
 				<div class="scroll-a form barre-gauche1"></div>
 				<div class="scroll-b form barre-gauche2"></div>
-				<div class="scroll-b form rond2"></div>
-				<div class="scroll-a form petit-rond2"></div>
+				<div class="scroll-a form rond2"></div>
+				<div class="scroll-b form petit-rond2"></div>
 				<div class="scroll-a form rond3"></div>
 				<div class="scroll-b form petit-rond3"></div>
-				<div class="scroll-a form barre-droite1"></div>
+				<div class="scroll-c form barre-droite1"></div>
+				<div class="scroll-c form barre-droite"></div>
+				<div class="scroll-a form grand-rond"></div>
 			</div>
 		</div>
 

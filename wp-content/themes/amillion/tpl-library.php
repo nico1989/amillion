@@ -7,8 +7,9 @@ Template Name: Music library
 
 get_header(); ?>
 
-
 <div class="wrapper main-wrapper">
+
+	<div class='innerpage-bg'></div>
 
 	<div class="intro">
 
@@ -27,22 +28,19 @@ get_header(); ?>
 			<?php  endwhile; 
 		endif; ?>
 
-		
-		
 		<div class="clear"></div>
 
 	</div>
-
 
 	<?php
 
 	if( have_rows('son') ):
 
-	    while ( have_rows('son') ) : the_row();
+	    while ( have_rows('son') ) : the_row(); ?>
 
-		the_sub_field('track');
+		<div class="track"><?php echo get_sub_field('track'); ?></div>
 	    
-	    endwhile;
+	    <?php endwhile;
 
 	else :
 
@@ -50,11 +48,6 @@ get_header(); ?>
 	endif;
 
 	?>
-
-
-	<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/239682543&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-
-
 
 
 </div>

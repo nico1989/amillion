@@ -1,38 +1,32 @@
 <?php
-/**
- * The template for displaying pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that
- * other "pages" on your WordPress site will use a different template.
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
 
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+<div class="wrapper main-wrapper">
 
-			// Include the page content template.
-			get_template_part( 'content', 'page' );
+	<div class='innerpage-bg'></div>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+	<?php if ( have_posts() ) :
+		while ( have_posts() ) : the_post();  ?>
 
-		// End the loop.
-		endwhile;
-		?>
+		<h1><?php the_title(); ?></h1>
+			
+			<?php the_content(); ?>
+			
+		<?php  endwhile; 
+	endif; ?>
 
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
+</div>
+
+
+<script>
+		
+	$(document).ready(function(){
+
+
+	});
+
+</script>
 
 <?php get_footer(); ?>

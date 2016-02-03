@@ -9,37 +9,23 @@ get_header(); ?>
 
 <div id="popin" class="popin">
 
-	<a href="#" class="btn-close-popin">
-		<span class="txt">Close</span>
-		<span class="bar"></span>
-		<div class="burger">
-			<span></span>
-			<span></span>
-		</div>
-	</a>
+		<div class="loader"><img src="" alt="Loader" /></div>
 
-	<div class="clear"></div>
+		<div class="wrapper">
 
-	<div class="content">
-		<h2>#4seasons</h2>
-		<p class="brand">Red bull</p>
-		<p class="type">Red bull</p>
+			<a href="#" class="btn-close-popin">
+				<span class="txt">Close</span>
+				<span class="bar"></span>
+				<div class="burger">
+					<span></span>
+					<span></span>
+				</div>
+			</a>
 
-		<p class="description">Music design for Mathias Dandois performing flat BMX for each seasons. We have produced the music for Summer and Winter part remixing Vivaldi Four seasons original piece.</p>
-	</div><!--
+			<div class="clear"></div>
 
-	--><div class="slideshow popin-slideshow">
-
-		<div class="slideshow-frame">
-			<nav>
-				<a class="prev" href=""></a>
-				<a class="next" href=""></a>
-			</nav>
 
 		</div>
-
-	</div>
-
 </div>
 
 
@@ -53,17 +39,15 @@ get_header(); ?>
 			<span>Explore</span>
 			<p class="push-title">Music<br>Library</p>
 			<p>Pre-cleared music<br>Curated for ads</p>
-			<a href="#" class="btn btn-push">Access</a>
+			<a href="music-library" class="btn btn-push">Access</a>
 		</div>
 
 		<div class='push push-production'>
 			<span>Order</span>
-			<p class="push-title">On demand<br>production</p>
+			<p class="push-title">On-demand<br>production</p>
 			<p>Exclusive license<br>All rights included</p>
-			<a href="#" class="btn btn-push">Fill a brief</a>
+			<a href="on-demand-production" class="btn btn-push">Fill a brief</a>
 		</div>
-
-
 	</div>
 
 	<div class="slideshow-frame">
@@ -71,74 +55,75 @@ get_header(); ?>
 			<a class="prev" href=""></a>
 			<a class="next" href=""></a>
 		</nav>
-
 		<span class='right-border'></span>
 	</div>
 
-	<ul class="bxslider">
+		<?php 
 
-		<?php
-			$type = 'projets';
-			$args=array(
-			  'post_type' => $type,
-			  'post_status' => 'publish',
-			  'posts_per_page' => -1,
-			  'caller_get_posts'=> 1);
+		$posts = get_field('projets_une');
 
-			$my_query = null;
-			$my_query = new WP_Query($args);
-			if( $my_query->have_posts() ) {
-			  while ($my_query->have_posts()) : $my_query->the_post(); 
-
-			  $img = get_field('image_slideshow');
-
-			  ?>
-
-				<li data-id='<?php the_ID(); ?>' style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+		if( $posts ): ?>
+		    <ul class="bxslider">
+		    <?php foreach( $posts as $post): ?>
+		        <?php 
+		        	setup_postdata($post); 
+		        	$img = get_field('image_slideshow');
+		        ?>
+		        <li data-id='<?php the_ID(); ?>' style="background: url(<?php echo $img['sizes']['slideshow']; ?>) no-repeat center; background-size: cover;">
 			  		<a class="btn-play"></a>
 
 			  		<div class="content">
 			  			<h3><?php the_title(); ?></h3>
-				  		<p class="brand"><?php the_tags('', ', ', ''); ?></p>
-				  		<p class="type"><?php the_category( ', ' ); ?></p>
+				  		<p class="brand"><?php echo strip_tags(get_the_tag_list('', ', ', '')); ?></p>
+				  		<p class="type"><?php echo strip_tags(get_the_category_list( ', ' )); ?></p>
 				  	</div>
 			  	</li>
-			    
-			    <?php
-			  endwhile;
-			}
-			wp_reset_query();
-		?>
-
-	</ul>
+		    <?php endforeach; ?>
+		    </ul>
+		    <?php wp_reset_postdata();  ?>
+		<?php endif; ?>
 
 </div>
 
-<h2 class='title-nav'><a class="scroll-to" href="#projets">Projets</a></h2>
+<h2 class='title-nav'><a class="scroll-to" href="#projets">Projects</a></h2>
+
 
 <div id="projets" class="bloc bloc-projets">
 
 	<div class="filters">
 		<span class="select-slash"></span>
 
-		<select class="filter filter-brand">
-			<option value="">Brand</option>
-			<?php $list_tags = get_tags();
+		<div class="filter filter-brand wrapper-dropdown">
+			<span class="label">Brand</span>
+			<ul class="dropdown">
+				<li><a data-value="" href="#">All brands</a></li>
+				<?php $menu_items = wp_get_nav_menu_items('filtre-marques');
 
-			foreach ($list_tags as $tag) :
-			?>
-			<option value="<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></option>
-			<?php endforeach; ?>
-		</select><!--
+				foreach ($menu_items as $item) : 
+				$tag = get_term_by('id', $item->object_id, 'post_tag'); ?>
 
-		--><select class="filter filter-type">
-			<option value="">Type</option>
-			<?php $list_cat = get_categories(); 
-			foreach ($list_cat as $cat) :
-			?>
-			<option value="<?php echo $cat->slug; ?>"><?php echo $cat->cat_name; ?></option>
-			<?php endforeach; ?>
-		</select>
+				<li><a data-value="<?php echo $tag->slug; ?>" href="#"><?php echo $tag->name; ?></a></li>
+				<?php endforeach; ?>
+
+			</ul>
+		</div><!--
+
+		--><div class="filter filter-type wrapper-dropdown">
+			<span class="label">Type</span>
+			<ul class="dropdown">
+				<li><a data-value="" href="#">All types</a></li>
+				<?php $menu_items = wp_get_nav_menu_items('filtre-types');
+
+				foreach ($menu_items as $item) : 
+				$cat = get_term_by('id', $item->object_id, 'category'); ?>
+
+				<li><a data-value="<?php echo $cat->slug; ?>" href="#"><?php echo $cat->name; ?></a></li>
+				
+				<?php endforeach; ?>
+
+			</ul>
+		</div>
+
 	</div>
 
 	<div class="projets-liste">
@@ -154,19 +139,24 @@ get_header(); ?>
 
 			$my_query = null;
 			$my_query = new WP_Query($args);
-			if( $my_query->have_posts() ) {
-			  while ($my_query->have_posts()) : $my_query->the_post(); 
+			$count=0;
 
-			  	$img = get_field('image_slideshow');
+			if( $my_query->have_posts() ) {
+			  while ($my_query->have_posts()) : $my_query->the_post(); $count++;
+
+			  	$img = get_field('image_miniature');
+			  	$tags = get_the_tags();
+			  	$cat = get_the_category();
+
 			  ?>
 
-				<li style="background: url(<?php echo $img['sizes']['large']; ?>) no-repeat center; background-size: cover;">
+				<li data-id="<?php the_ID(); ?>" data-brand="<?php echo $tags[0]->slug; ?>" data-type="<?php echo $cat[0]->slug; ?>" style="background: url(<?php echo $img['sizes']['miniature']; ?>) no-repeat center; background-size: cover;">
 			  		<div class="content">
 			  			<div class="overlay">
 				  			<div>
 				  				<h3><?php the_title(); ?></h3>
-						  		<p class="brand"><?php the_tags('', ', ', ''); ?></p>
-						  		<p class="type"><?php the_category( ', ' ); ?></p>
+						        <p class="brand"><?php echo strip_tags(get_the_tag_list('', ', ', '')); ?></p>
+						        <p class="type"><?php echo strip_tags(get_the_category_list( ', ' )); ?></p>
 						  	</div>
 					  	</div>
 				  	</div>
@@ -178,7 +168,8 @@ get_header(); ?>
 			wp_reset_query();
 		?>
 		</ul>
-		<a class="projets-more">+</a>
+
+		<a class="projets-more <?php echo $count < 10 ? 'off' : ''; ?>">+</a>
 
 	</div>
 
@@ -193,46 +184,48 @@ get_header(); ?>
 
 	<div class="services-frame"></div>
 
-	<h4>Amillion is a company specialized in music design since 2010 and worked with international renowned brands.</h4>
+	<h4><?php echo get_field('sous_titre'); ?></h4>
 
-	<p>We are able to create adapted soundtracks, synchronized to visual such as advertising movies, documentaries or digital content. <br>Our services offer is presented below: </p>
+	<p><?php echo get_field('presentation'); ?></p>
 	
 	<div class="pushs">
 		<div class='push push-service push-library'>
 			<span></span>
 			<p class="push-title">Music<br>library</p>
-			<p>Find the perfect production music for your project from our library including a large sound variety, organized through different playlists</p>
-			<a href="#" class="btn btn-push">Access</a>
+			<p><?php echo get_field('music_library'); ?></p>
+			<a href="./music-library" class="btn btn-push">Access</a>
 		</div><!--
 
 		--><div class='push push-service push-production'>
 			<span></span>
 			<p class="push-title">On demand<br>production</p>
-			<p>Give us a complete description for your project and receive a track fully meeting your needs</p>
-			<a href="#" class="btn btn-push">Fill a brief</a>
+			<p><?php echo get_field('on_demand_production'); ?></p>
+			<a href="./on-demand-production" class="btn btn-push">Fill a brief</a>
 		</div><!--
 
 		--><div class='push push-service push-sound-design'>
 			<span></span>
 			<p class="push-title">Sound<br>design</p>
-			<p>We own a large sound bankable to give life to your project by adding sound environment, sound effects or FX</p>
-			<a href="#" class="btn btn-push">Get in touch</a>
+			<p><?php echo get_field('sound_design'); ?></p>
+			<a href="#contact" class="btn btn-push scroll-to">Get in touch</a>
 		</div><!--
 
 		--><div class='push push-service push-identity'>
 			<span></span>
 			<p class="push-title">Sound<br>identity</p>
-			<p>Sound identity is the brand’s sound DNA. <br>We create your jingles, radio spots and compositions to accompany your image</p>
-			<a href="#" class="btn btn-push">Get in touch</a>
+			<p><?php echo get_field('sound_identity'); ?></p>
+			<a href="#contact" class="btn btn-push scroll-to">Get in touch</a>
 		</div>
 	</div>
 
 </div>
 
 
-<h2 class='title-nav'><a class="scroll-to" href="#contact">Contact</a></h2>
+<h2 class='title-nav title-contact'><a class="scroll-to" href="#contact">Contact</a></h2>
 
 <div id="contact" class="bloc bloc-contact">
+
+	<div class="bg-lateral"></div>
 
 	<?php echo do_shortcode( '[contact-form-7 id="4" title="Formulaire de contact"]' ); ?>
 
@@ -240,30 +233,30 @@ get_header(); ?>
 
 
 <script>
-		
+
 	$(document).ready(function(){
 
-		var slideshow = $('.bxslider').bxSlider({
-		  mode: 'vertical',
-		  captions: true,
-		  pause: 6000
+		<?php if(isset($_GET['section'])) : ?>
 
+		$(window).on('load', function(){
+			$('html,body').animate({
+			  scrollTop: $('#<?php echo $_GET["section"]; ?>').offset().top - 115
+			},{
+			  duration: 2000,
+			  easing: "easeInOutQuart"
+			});
 		});
 
-		$('.slideshow.main-slideshow .prev').on('click', function(e){
-			e.preventDefault();
+		<?php endif; ?>
 
-			slideshow.goToPrevSlide();
-		});
 
-		$('.slideshow.main-slideshow .next').on('click', function(e){
-			e.preventDefault();
+		<?php if(isset($_GET['project'])) : ?>
 
-			slideshow.goToNextSlide();
-		});
+			app.showProject(<?php echo $_GET['project'] ?>);
+
+		<?php endif; ?>
 
 	});
-
 
 </script>
 
